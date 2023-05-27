@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Admin;
+use App\Models\Author;
+use App\Models\User;
+
 return [
 
     /*
@@ -40,6 +44,26 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
+        'admin-web' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'admin-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
+        ],
+        'author-web' => [
+            'driver' => 'session',
+            'provider' => 'authors',
+        ],
+        'author-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -62,13 +86,16 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => Admin::class,
+        ],
+        'authors' => [
+            'driver' => 'eloquent',
+            'model' => Author::class,
+        ],
     ],
 
     /*
@@ -97,6 +124,18 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'authors' => [
+            'provider' => 'authors',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*
@@ -111,5 +150,22 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    /**
+     * guards
+     */
+    'admin-web-guard'=>config('auth.guards.admin-web'),
+
+    'admin-api-guard'=>config('auth.guards.admin-api'),
+
+    'author-web-guard'=>config('auth.guards.author-web'),
+
+    'author-api-guard'=>config('auth.guards.author-api'),
+
+    'user-web-guard'=>config('auth.guards.web'),
+
+    'user-web-guard'=>config('auth.guards.api'),
+
+
 
 ];
