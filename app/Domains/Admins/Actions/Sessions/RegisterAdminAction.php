@@ -8,17 +8,16 @@ use Domains\Admins\DataTransferToObject\AdminData;
 
 class RegisterAdminAction
 {
-    public function __invoke(RegisterAdminRequest $request)
+    public function __invoke(RegisterAdminRequest $request): Admin
     {
- return    $adminAttributes= unsetArrayEmptyParam(AdminData::fromRequest($request)->toArray());
+        $adminAttributes = unsetArrayEmptyParam(AdminData::fromRequest($request)->toArray());
 
-        $admin=Admin::query()->create($adminAttributes);
+        $admin = Admin::query()->create($adminAttributes);
 
-        if($request->avatar?->isFile())
-        {
+        if ($request->avatar?->isFile()) {
             $admin->addMediaFromRequest('avatar')->toMediaCollection('avatar');
         }
 
-        return $admin;
+        return $admin->load('media');
     }
 }
