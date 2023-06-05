@@ -154,7 +154,7 @@ return [
     /**
      * guards
      */
-    'admin-web-guard'=>config('auth.guards.admin-web'),
+    'admin-web-guard'=>'admin-web',
 
     'admin-api-guard'=>config('auth.guards.admin-api'),
 
