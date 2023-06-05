@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
     private function routeApiMap()
     {
         Route::middleware('api')
-            ->prefix('api')
+            ->prefix('api/v1/')
             ->group(base_path('routes/api.php'));
     }
 
@@ -53,14 +53,14 @@ class RouteServiceProvider extends ServiceProvider
     private function routeAdminMap()
     {
         Route::middleware('api')
-            ->prefix('api/admin/')
+            ->prefix('api/v1/admin/')
             ->group(base_path('routes/admin.php'));
     }
 
     private function routeAuthorMap()
     {
         Route::middleware('api')
-            ->prefix('api/author/')
+            ->prefix('api/v1/author/')
             ->group(base_path('routes/author.php'));
     }
 }
