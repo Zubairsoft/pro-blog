@@ -2,13 +2,13 @@
 
 namespace App\Models\ModelEloquent;
 
-use App\Models\ActivationToken;
+use App\Models\OtpActivation;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait UserEloquent
 {
-    public function ActivationToken():MorphOne
+    public function otpActivation(): MorphOne
     {
-        return $this->morphOne(ActivationToken::class,'tokenable');
+        return $this->morphOne(OtpActivation::class, 'activatable');
     }
 }
