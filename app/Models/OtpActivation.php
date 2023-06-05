@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ActivationToken extends Model
+class OtpActivation extends Model
 {
     use HasFactory ,HasUuids;
+
+    protected $fillable=[
+        'email',
+        'otp'
+    ];
 }
