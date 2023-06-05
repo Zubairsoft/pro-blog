@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admins\Sessions;
 
+use Domains\Supports\Enums\LocalEnum;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
@@ -42,6 +43,9 @@ class RegisterAdminRequest extends FormRequest
                 'required',
                 Password::min(9)->numbers()->letters()->symbols(),
                 'confirmed',
+            ],
+            'local' => [
+                Rule::in(LocalEnum::getValues())
             ]
         ];
     }
