@@ -51,14 +51,14 @@ class SessionController extends Controller
     {
         (new SendVerificationCodeAction)($request);
 
-        return sendSuccessResponse('send');
+        return sendSuccessResponse(__('auth.send_verification_code'));
     }
 
     public function ActivationAccount(ActivateAccountRequest $request)
     {
         $admin = (new ActivationAccountAction)($request);
 
-        return sendSuccessResponse();
+        return sendSuccessResponse(__('auth.email_verified'),$admin);
     }
 
 
