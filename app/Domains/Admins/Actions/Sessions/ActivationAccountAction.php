@@ -13,7 +13,7 @@ class ActivationAccountAction
         $otpActivation = OtpActivation::query()->where('otp', $request->otp)->firstOrFail();
 
         if (Carbon::parse($otpActivation->created_at)->addHours(24)->isPast()) {
-            // do someting
+            $otpActivation->delete();
         }
 
         $admin = $otpActivation->activatable;

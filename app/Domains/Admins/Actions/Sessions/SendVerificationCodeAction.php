@@ -16,5 +16,7 @@ class SendVerificationCodeAction
         }
 
         $admin->generateOtpActivation($admin->email);
+
+        // TODO send email for verification code
     }
 }
