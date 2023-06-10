@@ -29,20 +29,7 @@ class SessionController extends Controller
 
     public function login(LoginAdminRequest $request)
     {
-        Auth::shouldUse(config('auth.admin-web-guard'));
-
-        if (!Auth::attempt($request->validated())) {
-            return sendFailedResponse(__('auth.failed'), null, 422);
-        }
-
-        $admin = Auth::user();
-
-
-        if (!$admin->isActivatedAccount()) {
-            return sendFailedResponse(__('auth.verify_email'), null, 422);
-        }
-
-        $admin['token'] = $admin->createToken('adminAccessToken')->plainTextToken;
+        $admin = (new LoginAdminAction())($request);
 
         return sendSuccessResponse(__('auth.success_login'), $admin);
     }
@@ -58,7 +45,7 @@ class SessionController extends Controller
     {
         $admin = (new ActivationAccountAction)($request);
 
-        return sendSuccessResponse(__('auth.email_verified'),$admin);
+        return sendSuccessResponse(__('auth.email_verified'), $admin);
     }
 
 
