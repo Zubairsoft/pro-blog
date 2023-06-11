@@ -152,19 +152,19 @@ return [
     'password_timeout' => 10800,
 
     /**
-     * guards
+     * 4guards
      */
-    'admin-web-guard'=>'admin-web',
+    'admin-web-guard' => 'admin-web',
 
-    'admin-api-guard'=>config('auth.guards.admin-api'),
+    'admin-api-guard' => 'admin-api',
 
-    'author-web-guard'=>config('auth.guards.author-web'),
+    'author-web-guard' => 'author-web',
 
-    'author-api-guard'=>config('auth.guards.author-api'),
+    'author-api-guard' => 'author-api',
 
-    'user-web-guard'=>config('auth.guards.web'),
+    'user-web-guard' => 'web',
 
-    'user-web-guard'=>config('auth.guards.api'),
+    'user-api-guard' => 'api',
 
 
 
