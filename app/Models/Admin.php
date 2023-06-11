@@ -36,6 +36,7 @@ class Admin extends Authenticatable  implements HasMedia
     protected $fillable = [
         'name',
         'email',
+        'gender',
         'password',
         'email_verified_at',
         'local',
