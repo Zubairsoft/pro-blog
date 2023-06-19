@@ -270,6 +270,8 @@ return [
 
     'attributes' => [
         'name' => 'Name',
+        'name_ar'=>'Arabic Name',
+        'name_en'=>'English Name',
         'local'=>'Language',
         'job_name' => 'Job Name',
         'representative_name' => 'Representative Name',
