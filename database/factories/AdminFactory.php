@@ -23,7 +23,7 @@ class AdminFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->email(),
-            'password' => bcrypt(123456789),
+            'password' => 123456789,
             'gender' => Arr::random(GenderEnum::getValues()),
             'email_verified_at' => now(),
         ];

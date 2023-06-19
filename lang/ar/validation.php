@@ -130,7 +130,9 @@ return [
 
     'attributes' => [
         'name' => 'الاسم',
-        'local'=>'اللغة',
+        'name_ar' => 'الاسم بالعربي',
+        'name_en'=>'الاسم بالانجليزي',
+        'local' => 'اللغة',
         'job_name' => 'اسم الوظيفة',
         'representative_name' => 'اسم الممثل',
         'username' => 'اسم المُستخدم',
