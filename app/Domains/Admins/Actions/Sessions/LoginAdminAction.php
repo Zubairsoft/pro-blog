@@ -12,6 +12,7 @@ class LoginAdminAction
     public function __invoke(LoginAdminRequest $request)
     {
         Auth::shouldUse(config('auth.admin-web-guard'));
+        
         if (!Auth::attempt($request->validated())) {
             throw new LogicException(__('auth.failed'), 422);
         }
