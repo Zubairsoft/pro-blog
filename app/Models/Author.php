@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\ModelEloquent\AuthorEloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,7 +13,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Author extends Authenticatable
 {
-    use HasFactory, HasUuids, HasApiTokens, Notifiable,HasRoles;
+    use HasFactory, HasUuids, HasApiTokens, Notifiable,AuthorEloquent, HasRoles;
 
     protected $fillable = [
         'first_name',
@@ -23,12 +25,17 @@ class Author extends Authenticatable
         'is_active',
     ];
 
-    protected $casts=[
-        'email_verified_at'=>'datetime',
-        'is_active'=>'boolean',
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'is_active' => 'boolean',
     ];
 
-    protected $hidden=[
+    protected $hidden = [
         'password',
     ];
+
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('is_active', true);
+    }
 }
