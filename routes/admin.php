@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Admins\PostController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,14 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::get('/{id}', [TagController::class, 'show'])->name('show');
         Route::patch('/{id}', [TagController::class, 'update'])->name('update');
         Route::delete('/', [TagController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('posts')->prefix('posts')->group(function () {
+        Route::get('/', [PostController::class, 'index'])->name('index');
+        Route::get('/own', [PostController::class, 'indexOwn'])->name('index_own');
+        Route::post('/', [PostController::class, 'store'])->name('store');
+        Route::get('/{id}', [PostController::class, 'show'])->name('show');
+        Route::patch('/{id}', [PostController::class, 'update'])->name('update');
+        Route::delete('/', [PostController::class, 'destroy'])->name('destroy');
     });
 });

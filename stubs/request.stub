@@ -3,15 +3,18 @@
 namespace {{ namespace }};
 
 use Illuminate\Foundation\Http\FormRequest;
+use Domains\Supports\Traits\Http\HttpRequest;
+
 
 class {{ class }} extends FormRequest
 {
+    use HttpRequest;
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +24,23 @@ class {{ class }} extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+         return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
+
+    }
+
+    
+    public function creationRules(): array
+    {
+        return [];
+    }
+
+    public function updatingRules(): array
+    {
+        return [];
+    }
+
+    public function DeletionRules(): array
+    {
+        return [];
     }
 }
