@@ -17,7 +17,7 @@ class StorePostAction
 
         $post = $admin->posts()->create($attributes);
 
-        $post->tags()-
+        $post->tags()->sync($request->tags);
 
         if ($request->poster->isFile()) {
             $post->addMediaFromRequest('poster')->toMediaCollection('poster');
