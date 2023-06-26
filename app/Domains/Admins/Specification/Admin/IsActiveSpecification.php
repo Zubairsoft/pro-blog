@@ -7,8 +7,8 @@ use App\Models\Admin;
 class IsActiveSpecification implements AdminSpecificationInterface
 {
 
-    public function isAllowed(Admin $author): bool
+    public function isAllowed(Admin $admin): bool
     {
-        return $author->is_active;
+        return $admin->is_active;
     }
 }
