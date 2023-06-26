@@ -72,6 +72,14 @@ class PostRequest extends FormRequest
             'is_published_en' => [
                 'boolean',
             ],
+            'tags' => [
+                'required',
+                'array'
+            ],
+            'tags.*'=>[
+                'required',
+                Rule::exists('tags','id')
+            ]
         ];
     }
 
@@ -79,22 +87,18 @@ class PostRequest extends FormRequest
     {
         return [
             'title_ar' => [
-                'required',
                 'min:3',
                 'max:255',
             ],
             'title_en' => [
-                'required',
                 'min:3',
                 'max:255',
             ],
             'description_ar' => [
-                'required',
                 'min:3',
                 'max:1000',
             ],
             'description_en' => [
-                'required',
                 'min:3',
                 'max:1000',
             ],
@@ -110,7 +114,14 @@ class PostRequest extends FormRequest
             ],
             'status' => [
                 'boolean',
+            ],
+            'tags' => [
+                'array'
+            ],
+            'tags.*'=>[
+                Rule::exists('tags','id')
             ]
+
         ];
     }
 
