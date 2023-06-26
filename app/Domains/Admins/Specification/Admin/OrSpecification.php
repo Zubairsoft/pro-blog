@@ -12,11 +12,11 @@ class OrSpecification implements AdminSpecificationInterface
         $this->specifications = $adminSpecification;
     }
 
-    public function isAllowed(Admin $author): bool
+    public function isAllowed(Admin $admin): bool
     {
         foreach ($this->specifications as $specification) {
 
-            if ($specification->isAllowed($author)) {
+            if ($specification->isAllowed($admin)) {
                 return true;
             }
         }
