@@ -18,9 +18,10 @@ class IndexPostAction
 
         $sortBy = $request->input('sortBy') ?? 'desc';
 
-        $query = Post::query()->with('tags')->whereHas('tags', fn (Builder $builder) => $builder->whereIn('tags.id', $request->tagIds))
+        $query = Post::query()->with('tags')->when($request->input('tags'),fn(Builder $query)=>$query->whereHas('tags', fn (Builder $builder) => $builder->whereIn('tags.id', $request->tagIds)))
 
-            ->when($searchText, fn (builder $builder) => $builder->where('title', 'like', "%{$searchText}%"))
+            ->when($searchText, fn (builder $builder) => $builder->where('title_ar', 'like', "%{$searchText}%")
+            ->orWhere('title_en', 'like', "%{$searchText}%"))
 
             ->orderBy($orderBy, $sortBy)
 

@@ -8,6 +8,6 @@ class ShowPostAction
 {
     public function __invoke( string $id): Post
     {
-        return Post::query()->findOrFail($id);
+        return Post::query()->with('tags')->findOrFail($id);
     }
 }
