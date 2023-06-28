@@ -26,7 +26,9 @@ class Post extends BaseModel implements HasMedia
     ];
 
     protected $casts = [
-        'status' => 'boolean'
+        'status' => 'boolean',
+        'is_publish_ar' => 'boolean',
+        'is_publish_en' => 'boolean'
     ];
 
     public function registerMediaCollections(): void

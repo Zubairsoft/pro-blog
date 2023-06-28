@@ -12,14 +12,17 @@ class UpdatePostAction
     public function __invoke(PostRequest $request, string $id): Post
     {
         $attributes = unsetArrayEmptyParam(PostData::fromRequest($request)->toArray());
-
         $admin = Auth::user();
 
         $post = $admin->posts()->findOrFail($id);
 
         $post->update($attributes);
 
-        if ($request->poster->isFile()) {
+        if ($request->has('tags')) {
+            $post->tags()->sync($request->tags);
+        }
+
+        if ($request->poster?->isFile()) {
             $post->addMediaFromRequest('poster')->toMediaCollection('poster');
         }
 

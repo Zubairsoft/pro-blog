@@ -97,6 +97,6 @@ class PostController extends Controller
   {
     $post = (new DestroyPostAction)($request);
 
-    return sendSuccessResponse(__('messages.get_data'), $post);
+    return sendSuccessResponse(__('messages.delete_data'), $post);
   }
 }

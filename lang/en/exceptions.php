@@ -54,4 +54,6 @@ return [
     'unpublished_event_enrollment' => 'You cannot submit an enrollment request for an event that is unpublished',
     'enrollment_request_already_sent' => 'The enrollment request has already been sent',
     'enrollment_request_already_accepted' => 'The enrollment request has already been accepted',
+    'is_not_active_account' => 'Your account is inactivated please contact with administrator'
+
 ];

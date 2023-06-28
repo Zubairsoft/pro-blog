@@ -16,6 +16,6 @@ trait PostEloquent
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class)->using(TagPost::class);
+        return $this->belongsToMany(Tag::class,'tag_posts')->using(TagPost::class);
     }
 }

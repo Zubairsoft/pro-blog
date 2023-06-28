@@ -10,6 +10,6 @@ trait TagEloquent
 {
     public function posts(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class)->using(TagPost::class);
+        return $this->belongsToMany(Post::class,'tag_posts')->using(TagPost::class);
     }
 }

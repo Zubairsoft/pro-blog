@@ -12,6 +12,7 @@ final class AdminData extends Data
         public ?string $email,
         public ?string $password,
         public ?bool $is_active,
+        public ?int $gender,
         public ?bool $local
     ) {
     }
@@ -23,6 +24,7 @@ final class AdminData extends Data
             $request->post('email'),
             $request->post('password'),
             $request->post('is_active'),
+            $request->post('gender'),
             $request->post('local')
         );
     }

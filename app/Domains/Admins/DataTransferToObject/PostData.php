@@ -8,17 +8,17 @@ use Spatie\LaravelData\Data;
 final class PostData extends Data
 {
     public function __construct(
-      public ?string $title_ar,
-      public ?string $title_en,
-      public ?string $description_ar,
-      public ?string $description_en,
-      public ?bool $status,
-      public ?string $is_publish_ar,
-      public ?string $is_publish_en,
+        public ?string $title_ar,
+        public ?string $title_en,
+        public ?string $description_ar,
+        public ?string $description_en,
+        public ?bool $status,
+        public ?string $is_publish_ar,
+        public ?string $is_publish_en,
     ) {
     }
 
-    static function fromRequest(PostRequest $request):PostData
+    static function fromRequest(PostRequest $request): PostData
     {
         return new self(
             $request->post('title_ar'),
@@ -26,8 +26,8 @@ final class PostData extends Data
             $request->post('description_ar'),
             $request->post('description_en'),
             $request->boolean('status'),
-            $request->boolean('is_publish_ar'),
-            $request->boolean('is_publish_en'),
+            $request->post('is_publish_ar'),
+            $request->post('is_publish_en'),
         );
     }
 }
