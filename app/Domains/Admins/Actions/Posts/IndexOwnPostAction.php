@@ -2,6 +2,7 @@
 
 namespace Domains\Admins\Actions\Posts;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,11 +12,20 @@ class IndexOwnPostAction
     {
         $perPage = 10;
 
+        $sort = $request->input('sort') ?? 'id';
+
+        $sortBy = $request->input('sortBy') ?? 'desc';
+
+        $searchText = $request->input('searchText');
+
         $admin = Auth::user();
 
-        $sortBy=$request->input('sortBy')??'desc';
-
-        $query = $admin->posts()->search(['title_ar', 'title_en', 'description_ar', 'description_en'],$request->searchText)->paginate($perPage);
+        $query = $admin->posts()
+            ->when(
+                $searchText,
+                fn (Builder $builder) => $builder->search(['title_ar', 'title_en', 'description_ar', 'description_en'], $searchText)
+            )->orderBy($sort, $sortBy)
+            ->paginate($perPage);
 
         return $query;
     }

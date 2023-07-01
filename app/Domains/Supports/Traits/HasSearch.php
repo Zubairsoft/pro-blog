@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait HasSearch
 {
-    public function scopeSearch(Builder $query,array $columns,$searchText): Builder
+    public function scopeSearch(Builder $query, array $columns, $searchText): Builder
     {
-        //TODO implemment Logic for handle search
+        $columnMap = collect($columns)->map(fn ($column) => "`$column`" . ' like ' . "'%{$searchText}%' ")->toArray();
 
-        return $query;
+        $queryString = join(' or ', $columnMap);
+
+        return $query->whereRaw("($queryString)");
     }
 }

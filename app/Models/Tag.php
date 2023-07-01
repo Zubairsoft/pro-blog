@@ -4,11 +4,13 @@ namespace App\Models;
 
 use App\Models\ModelAttributes\TagAttributes;
 use App\Models\ModelEloquent\TagEloquent;
+use Domains\Supports\Traits\HasSearch;
 
 class Tag extends BaseModel
 {
     use TagAttributes;
     use TagEloquent;
+    use HasSearch;
 
     protected $fillable = [
         'name_ar',

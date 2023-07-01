@@ -20,8 +20,7 @@ class IndexTagAction
         $searchText = $request->input('searchText');
 
         $tags = Tag::query()->when($searchText, fn (Builder $query) =>
-        $query->where('name_en', 'like', "%{$searchText}%")
-            ->orWhere('name_ar', 'like', "%{$searchText}%"))
+        $query->search(['name_ar', 'name_en'], $searchText))
             ->orderBy($orderBy, $sortBy)
             ->paginate($perPage);
 
