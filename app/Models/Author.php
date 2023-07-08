@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\ModelAttributes\AuthorAttributes;
 use App\Models\ModelEloquent\AuthorEloquent;
 use Domains\Supports\Traits\ActivateAccount;
+use Domains\Supports\Traits\HasMediaFromRequest;
+use Domains\Supports\Traits\HasSearch;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +19,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Author extends Authenticatable implements HasMedia
 {
-    use HasFactory, HasUuids, HasApiTokens, Notifiable,AuthorEloquent, HasRoles ,InteractsWithMedia ,ActivateAccount;
+    use HasFactory, HasUuids, HasApiTokens, Notifiable,AuthorEloquent,AuthorAttributes, HasRoles ,InteractsWithMedia ,ActivateAccount,HasMediaFromRequest,HasSearch;
 
     protected $fillable = [
         'first_name',

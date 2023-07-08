@@ -4,18 +4,27 @@ namespace Domains\Admins\Actions\Sessions;
 
 use App\Http\Requests\Admins\Sessions\SendVerificationCodeRequest;
 use App\Models\Admin;
+use App\Models\OtpActivation;
+use Carbon\Carbon;
 
 class SendVerificationCodeAction
 {
     public function __invoke(SendVerificationCodeRequest $request)
     {
-        $admin = Admin::query()->where('email', $request->email)->firstOrFail();
+        $otpActivation = OtpActivation::query()->where([['email','=',$request->email],['type','=',Admin::class]])->first();
 
-        if ($admin->isActivatedAccount()) {
-            return sendFailedResponse(__('auth.not_verified'), null, 422);
+        if ($otpActivation) {
+
+            if (Carbon::parse($otpActivation->created_at)->addHour()->isPast()) {
+                $otpActivation->delete();
+                OtpActivation::generateOtpActivation($request->email, Admin::class);
+            }
+
+            return $request->email;
         }
+        OtpActivation::generateOtpActivation($request->email, Admin::class);
 
-        $admin->generateOtpActivation($admin->email);
+        return $request->email;
 
         // TODO send email for verification code
     }
