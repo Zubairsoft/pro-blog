@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('otp_activations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuidMorphs('activatable');
             $table->string('email');
             $table->string('otp');
+            $table->string('type');
 
             $table->timestamps();
         });
