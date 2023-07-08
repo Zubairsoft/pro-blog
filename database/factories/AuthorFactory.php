@@ -24,7 +24,7 @@ class AuthorFactory extends Factory
          'last_name'=>fake()->lastName(),
          'gender'=>Arr::random(GenderEnum::getValues()),
          'email'=>fake()->email(),
-         'password'=>bcrypt(123456789),
+         'password'=>123456789,
          'email_verified_at'=>fake()->dateTimeBetween(Carbon::now()->subYears(2)),
          'is_active'=>Arr::random([true,false])
         ];
