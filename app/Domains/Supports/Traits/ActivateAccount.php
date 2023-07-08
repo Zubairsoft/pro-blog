@@ -18,11 +18,4 @@ trait ActivateAccount
         return $this;
     }
 
-    public function generateOtpActivation($email)
-    {
-        return $this->otpActivation()->create([
-            'email'=>$email,
-            'otp'=>generateOtp()
-        ]);
-    }
 }
