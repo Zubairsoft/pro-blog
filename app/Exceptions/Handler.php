@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
         return match (app()->environment()) {
-            'local' => $this->JsonResponseExceptionHandler($e),
+            'testing','staging','production' => $this->JsonResponseExceptionHandler($e),
             default => parent::render($request, $e)
         };
     }
