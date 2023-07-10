@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('token');
             $table->tinyInteger('type');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 
