@@ -6,16 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\Sessions\ActivateAccountRequest;
 use App\Http\Requests\Admins\Sessions\LoginAdminRequest;
 use App\Http\Requests\Admins\Sessions\RegisterAdminRequest;
+use  App\Http\Requests\Admins\Sessions\ResetPasswordRequest;
+use App\Http\Requests\Admins\Sessions\SendResetPasswordRequest;
 use App\Http\Requests\Admins\Sessions\SendVerificationCodeRequest;
-use App\Models\Admin;
 use Domains\Admins\Actions\Sessions\ActivationAccountAction;
 use Domains\Admins\Actions\Sessions\LoginAdminAction;
 use Domains\Admins\Actions\Sessions\LogoutAdminAction;
 use Domains\Admins\Actions\Sessions\RegisterAdminAction;
+use Domains\Admins\Actions\Sessions\ResetPasswordAction;
+use Domains\Admins\Actions\Sessions\SendRestPasswordAction;
 use Domains\Admins\Actions\Sessions\SendVerificationCodeAction;
+
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
@@ -48,6 +50,19 @@ class SessionController extends Controller
         return sendSuccessResponse(__('auth.email_verified'), $admin);
     }
 
+    public function sendRestPassword(SendResetPasswordRequest $request)
+    {
+         $restPassword=(new SendRestPasswordAction)($request);
+
+         return sendSuccessResponse(__('passwords.password_reset_warning'),$restPassword);
+    }
+
+    public function restPassword(ResetPasswordRequest $request)
+    {
+       (new ResetPasswordAction)($request);
+
+       return sendSuccessResponse(__('passwords.reset'));
+    }
 
 
     public function logout()
