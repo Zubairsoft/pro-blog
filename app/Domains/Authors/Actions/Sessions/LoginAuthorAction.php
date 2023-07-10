@@ -15,7 +15,7 @@ class LoginAuthorAction
         Auth::shouldUse(config('auth.author-web-guard'));
 
         if (!Auth::attempt($request->validated())) {
-            return sendSuccessResponse(__('auth.failed'));
+            throw new LogicException(__('auth.verify_email'), 422);
         }
 
         $author = Auth::user();
