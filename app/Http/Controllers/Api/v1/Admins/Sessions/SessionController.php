@@ -54,7 +54,7 @@ class SessionController extends Controller
     {
          $restPassword=(new SendRestPasswordAction)($request);
 
-         return sendSuccessResponse(__('passwords.password_reset_warning'),$restPassword);
+         return sendSuccessResponse(__('passwords.sent'),$restPassword);
     }
 
     public function restPassword(ResetPasswordRequest $request)
