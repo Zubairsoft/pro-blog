@@ -9,5 +9,18 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    /**
+     * Handle the incoming request for fetch all author posts
+     * 
+     * @param Request $request
+     * 
+     * @return JsonResponse
+     */
+    public function index(Request $request): JsonResponse
+    {
+        $posts = (new IndexPostAction)($request);
+
+        return sendSuccessResponse(__('messages.get_data'), $posts);
+    }
 
 }
