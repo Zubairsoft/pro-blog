@@ -3,11 +3,14 @@
 namespace Domains\Authors\Actions\Posts;
 
 use App\Http\Requests\Admins\PostRequest;
-use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
-class DestroyPostAction
+final class DestroyPostAction
 {
     public function __invoke(PostRequest $request): int
     {
+        $author = Auth::user();
+
+        return $author->posts()->whereIn('id', $request->ids)->delete();
     }
 }
