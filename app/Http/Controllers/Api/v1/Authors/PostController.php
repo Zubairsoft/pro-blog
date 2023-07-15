@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Authors;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\PostRequest;
+use Domains\Authors\Actions\Posts\DestroyPostAction;
 use Domains\Authors\Actions\Posts\IndexPostAction;
 use Domains\Authors\Actions\Posts\ShowPostAction;
 use Domains\Authors\Actions\Posts\StorePostAction;
@@ -68,5 +69,19 @@ class PostController extends Controller
         $post = (new UpdatePostAction)($request, $id);
 
         return sendSuccessResponse(__('messages.update_data'), $post);
+    }
+
+    /**
+     * Handle the incoming request for deleting posts
+     * 
+     * @param PostRequest $request
+     * 
+     * @return JsonResponse
+     */
+    public function destroy(PostRequest $request):JsonResponse
+    {
+        $posts=(new DestroyPostAction)($request);
+
+        return sendSuccessResponse(__('messages.delete_data'),$posts);
     }
 }
