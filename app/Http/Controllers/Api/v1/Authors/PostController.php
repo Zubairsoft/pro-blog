@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Authors;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\PostRequest;
+use App\Http\Resources\Authors\Posts\PostResource;
 use Domains\Authors\Actions\Posts\DestroyPostAction;
 use Domains\Authors\Actions\Posts\IndexPostAction;
 use Domains\Authors\Actions\Posts\ShowPostAction;
@@ -39,7 +40,7 @@ class PostController extends Controller
     {
         $post = (new StorePostAction)($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $post);
+        return sendSuccessResponse(__('messages.create_data'), PostResource::make($post));
     }
 
     /**
@@ -53,7 +54,7 @@ class PostController extends Controller
     {
         $post = (new ShowPostAction)($id);
 
-        return sendSuccessResponse(__('messages.get_data'), $post);
+        return sendSuccessResponse(__('messages.get_data'),PostResource::make($post));
     }
 
     /**
@@ -68,7 +69,7 @@ class PostController extends Controller
     {
         $post = (new UpdatePostAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.update_data'), $post);
+        return sendSuccessResponse(__('messages.update_data'), PostResource::make($post));
     }
 
     /**
