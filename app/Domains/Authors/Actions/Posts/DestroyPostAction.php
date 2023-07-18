@@ -2,7 +2,7 @@
 
 namespace Domains\Authors\Actions\Posts;
 
-use App\Http\Requests\Admins\PostRequest;
+use App\Http\Requests\Authors\PostRequest;
 use Illuminate\Support\Facades\Auth;
 
 final class DestroyPostAction
