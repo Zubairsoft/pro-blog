@@ -2,6 +2,8 @@
 
 namespace Domains\Authors\Actions\Posts;
 
+use App\Http\Resources\Authors\Posts\PostCollectionResource;
+use App\Http\Resources\Authors\Posts\PostResource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +36,6 @@ final class IndexPostAction
         )
             ->orderBy($orderBy, $sortBy)->paginate($perPage);
 
-        return $query;
+        return PostResource::collection($query)->appends($request->query())->toArray();
     }
 }
