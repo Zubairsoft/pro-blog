@@ -11,6 +11,16 @@ final class UpdateProfileAction
 {
     public function __invoke(ProfileRequest $request): Admin
     {
-       
+        $attributes = unsetArrayEmptyParam(ProfileData::fromRequest($request)->toArray());
+
+        $admin = Auth::user();
+
+        $admin->update($attributes);
+
+        if ($request->avatar?->isFile()) {
+            $admin->addMediaFromRequest('avatar')->toMediaCollection('avatar');
+        }
+
+        return $admin;
     }
 }
