@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\Admins\PostController;
+use App\Http\Controllers\Api\v1\Admins\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,9 @@ Route::name('sessions.')->prefix('sessions')->group(function () {
 
     Route::middleware('auth:admin-api')->group(function () {
         Route::get('logout', [SessionController::class, 'logout'])->name('logout');
+
+        Route::get('profile',[ProfileController::class,'show'])->name('show.profile');
+        Route::patch('profile',[ProfileController::class,'update'])->name('update.profile');
     });
 });
 
