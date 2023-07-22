@@ -12,4 +12,16 @@ use Illuminate\Http\JsonResponse;
 class ProfileController extends Controller
 {
 
+    /**
+     * Show admin profile
+     * 
+     * @return JsonResponse
+     */
+    public function show(): JsonResponse
+    {
+        $admin = (new ShowProfileAction)();
+
+        return sendSuccessResponse(__('messages.get_data'), ProfileResource::make($admin));
+    }
+
 }
