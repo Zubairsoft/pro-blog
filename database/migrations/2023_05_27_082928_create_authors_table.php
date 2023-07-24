@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('gender')->index();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); 
             $table->string('local')->default(LocalEnum::ARABIC);
             $table->boolean('is_active')->default(false);
             $table->timestamps();
