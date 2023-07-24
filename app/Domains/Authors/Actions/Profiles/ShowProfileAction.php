@@ -9,5 +9,6 @@ final class ShowProfileAction
 {
     public function __invoke(): Author
     {
+        return Auth::user();
     }
 }
