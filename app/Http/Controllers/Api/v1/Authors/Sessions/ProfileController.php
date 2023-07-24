@@ -11,4 +11,17 @@ use Illuminate\Http\JsonResponse;
 class ProfileController extends Controller
 {
 
+    /**
+     * Handle the incoming request for show profile
+     * 
+     * @return JsonResponse
+     */
+    public function show(): JsonResponse
+    {
+        $author = (new ShowProfileAction)();
+
+        return sendSuccessResponse(__('messages.get_data'), $author);
+    }
+
+
 }
