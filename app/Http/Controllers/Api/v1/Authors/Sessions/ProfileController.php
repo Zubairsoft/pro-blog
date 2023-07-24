@@ -23,5 +23,17 @@ class ProfileController extends Controller
         return sendSuccessResponse(__('messages.get_data'), $author);
     }
 
+    /**
+     * Handle the incoming request for update profile
+     * 
+     * @param ProfileRequest $request
+     * 
+     * @return JsonResponse
+     */
+    public function update(ProfileRequest $request): JsonResponse
+    {
+        $author = (new UpdateProfileAction)($request);
 
+        return sendSuccessResponse(__('messages.update'), $author);
+    }
 }
