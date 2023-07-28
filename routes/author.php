@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\v1\Authors\PostController;
+use App\Http\Controllers\Api\v1\Authors\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,12 +13,16 @@ Route::name('sessions.')->prefix('sessions')->group(function () {
     Route::post('rest-password',[SessionController::class,'sendRestPassword'])->name('send_rest_password');
     Route::patch('rest-password',[SessionController::class,'restPassword'])->name('rest_password');
 
-    Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware('auth:author-api')->group(function () {
         Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
+
+        
+        Route::get('profile',[ProfileController::class,'show'])->name('show.profile');
+        Route::patch('profile',[ProfileController::class,'update'])->name('update.profile');
     });
 });
 
-Route::middleware('auth:sanctum')->group(function(){
+Route::middleware('auth:author-api')->group(function(){
     Route::name('posts.')->prefix('posts')->group(function () {
         Route::get('/', [PostController::class, 'index'])->name('index');
         Route::post('/', [PostController::class, 'store'])->name('store');
