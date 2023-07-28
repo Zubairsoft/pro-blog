@@ -11,8 +11,4 @@ class BaseModel extends Model
 {
     use HasFactory;
     use HasUuids;
-
-    protected $fillable=[];
-
-    protected $casts=[];
 }
