@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('bookmarks', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuidMorphs('userable');
+            $table->uuid('post_id');
+
+            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onUpdate('cascade');
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }
