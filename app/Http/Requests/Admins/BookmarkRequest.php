@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admins;
 
 use Domains\Supports\Traits\Http\HttpRequest;
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
 
 class BookmarkRequest extends FormRequest
 {
@@ -24,14 +24,19 @@ class BookmarkRequest extends FormRequest
      */
     public function rules(): array
     {
-         return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
-
+        return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
     }
 
-    
+
     public function creationRules(): array
     {
-        return [];
+        return [
+            'post_id' => [
+                'required',
+                'uuid',
+                Rule::exists('posts', 'id')
+            ]
+        ];
     }
 
     public function updatingRules(): array
@@ -41,6 +46,14 @@ class BookmarkRequest extends FormRequest
 
     public function DeletionRules(): array
     {
-        return [];
+        return [
+            'ids' => [
+                'array',
+            ],
+            'ids' => [
+                'required',
+                'uuid',
+            ]
+        ];
     }
 }
