@@ -15,7 +15,7 @@ class ForestJsonResponse
      */
     public function handle(Request $request, Closure $next): Response
     {
-
+      //    $request->header()->set(['type'=>'Application/Json']);
         return $next($request);
     }
 }
