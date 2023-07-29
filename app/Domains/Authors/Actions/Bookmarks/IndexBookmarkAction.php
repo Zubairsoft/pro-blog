@@ -2,7 +2,7 @@
 
 namespace Domains\Authors\Actions\Bookmarks;
 
-use App\Http\Resources\Author\Bookmarks\BookmarkResource;
+use App\Http\Resources\Authors\Bookmarks\BookmarkResource;
 use Domains\Repository\BookmarkRepository;
 use Illuminate\Http\Request;
 

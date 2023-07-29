@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Author\Bookmarks;
+namespace App\Http\Resources\Authors\Bookmarks;
 
 use App\Http\Resources\Authors\Posts\PostResource;
 use Illuminate\Http\Request;
