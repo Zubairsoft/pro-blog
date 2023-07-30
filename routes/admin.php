@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\v1\Admins\PostController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
+use App\Http\Controllers\Api\v1\Admins\BookmarkController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('sessions.')->prefix('sessions')->group(function () {
@@ -38,5 +39,12 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::get('/{id}', [PostController::class, 'show'])->name('show');
         Route::patch('/{id}', [PostController::class, 'update'])->name('update');
         Route::delete('/', [PostController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('bookmarks.')->prefix('bookmarks')->group(function () {
+        Route::get('/', [BookmarkController::class, 'index'])->name('index');
+        Route::post('/', [BookmarkController::class, 'store'])->name('store');
+        Route::get('/{id}', [BookmarkController::class, 'show'])->name('show');
+        Route::delete('/', [BookmarkController::class, 'destroy'])->name('destroy');
     });
 });
