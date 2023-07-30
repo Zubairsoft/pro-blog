@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\App;
 
 trait TranslateAttributes
 {
+ protected function title():Attribute
+ {
+    return Attribute::make(fn()=> App::currentLocale()===LocalEnum::ARABIC?$this->title_ar:$this->title_en);
+ }
 
+ protected function description():Attribute
+ {
+    return Attribute::make(fn()=> App::currentLocale()===LocalEnum::ARABIC?$this->description_ar:$this->description_en);
+ }
 
 }
