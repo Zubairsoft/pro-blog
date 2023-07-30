@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ModelAttributes\PostAttributes;
 use App\Models\ModelEloquent\PostEloquent;
 use Domains\Supports\Traits\HasSearch;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,7 @@ class Post extends BaseModel implements HasMedia
     use SoftDeletes;
     use PostEloquent;
     use InteractsWithMedia;
+    use PostAttributes;
     use HasSearch;
 
     protected $fillable = [
