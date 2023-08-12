@@ -17,7 +17,7 @@ class BookmarkResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'post' => PostResource::make($this->post)
+            'posts' => PostResource::make($this->post)
         ];
     }
 }
