@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\CommentRequest;
 use Domains\Admins\Actions\Comments\IndexCommentAction;
+use Domains\Admins\Actions\Comments\ShowCommentAction;
 use Domains\Admins\Actions\Comments\StoreCommentAction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -37,8 +38,23 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request, string $id): JsonResponse
     {
-        $comments = (new StoreCommentAction)($request, $id);
+        $comment = (new StoreCommentAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $comments);
+        return sendSuccessResponse(__('messages.create_data'), $comment);
+    }
+
+    /**
+     * Handle the incoming request for show comment
+     * 
+     * @param string $id
+     * @param string $commentId
+     * 
+     * @return JsonResponse
+     */
+    public function show(string $id, string $commentId): JsonResponse
+    {
+        $comment = (new ShowCommentAction)($id, $commentId);
+
+        return sendSuccessResponse(__('messages.get_data'), $comment);
     }
 }
