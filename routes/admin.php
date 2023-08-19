@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\v1\Admins\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use App\Http\Controllers\Api\v1\Admins\BookmarkController;
+use App\Http\Controllers\Api\v1\Admins\CommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('sessions.')->prefix('sessions')->group(function () {
@@ -12,14 +13,14 @@ Route::name('sessions.')->prefix('sessions')->group(function () {
     Route::post('login', [SessionController::class, 'login'])->name('login');
     Route::post('send-verification-code', [SessionController::class, 'sendVerificationCode'])->name('send_verification_code');
     Route::post('activate-account', [SessionController::class, 'ActivationAccount'])->name('activate_account');
-    Route::post('rest-password',[SessionController::class,'sendRestPassword'])->name('send_rest_password');
-    Route::patch('rest-password',[SessionController::class,'restPassword'])->name('rest_password');
+    Route::post('rest-password', [SessionController::class, 'sendRestPassword'])->name('send_rest_password');
+    Route::patch('rest-password', [SessionController::class, 'restPassword'])->name('rest_password');
 
     Route::middleware('auth:admin-api')->group(function () {
         Route::get('logout', [SessionController::class, 'logout'])->name('logout');
 
-        Route::get('profile',[ProfileController::class,'show'])->name('show.profile');
-        Route::patch('profile',[ProfileController::class,'update'])->name('update.profile');
+        Route::get('profile', [ProfileController::class, 'show'])->name('show.profile');
+        Route::patch('profile', [ProfileController::class, 'update'])->name('update.profile');
     });
 });
 
@@ -39,6 +40,14 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::get('/{id}', [PostController::class, 'show'])->name('show');
         Route::patch('/{id}', [PostController::class, 'update'])->name('update');
         Route::delete('/', [PostController::class, 'destroy'])->name('destroy');
+
+        Route::name('comments')->prefix('{id}/comments')->group(function () {
+            Route::get('/', [CommentController::class, 'index'])->name('index');
+            Route::post('/', [CommentController::class, 'store'])->name('store');
+            Route::get('/{id}', [CommentController::class, 'show'])->name('show');
+            Route::patch('/{id}', [CommentController::class, 'update'])->name('update');
+            Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
+        });
     });
 
     Route::name('bookmarks.')->prefix('bookmarks')->group(function () {
