@@ -2,6 +2,7 @@
 
 namespace App\Models\ModelEloquent;
 
+use App\Models\Comment;
 use App\Models\OtpActivation;
 use App\Models\Post;
 use App\Models\Tag;
@@ -24,5 +25,10 @@ trait AdminEloquent
     public function tags(): HasMany
     {
         return $this->hasMany(Tag::class);
+    }
+
+    public function comments():MorphMany
+    {
+    return $this->morphMany(Comment::class,'userable');
     }
 }
