@@ -7,6 +7,7 @@ use App\Http\Requests\Admins\CommentRequest;
 use Domains\Admins\Actions\Comments\IndexCommentAction;
 use Domains\Admins\Actions\Comments\ShowCommentAction;
 use Domains\Admins\Actions\Comments\StoreCommentAction;
+use Domains\Admins\Actions\Comments\UpdateCommentAction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,21 @@ class CommentController extends Controller
     public function show(string $id, string $commentId): JsonResponse
     {
         $comment = (new ShowCommentAction)($id, $commentId);
+
+        return sendSuccessResponse(__('messages.get_data'), $comment);
+    }
+
+    /**
+     * Handle the incoming request for update comment
+     * 
+     * @param string $id
+     * @param string $commentId
+     * 
+     * @return JsonResponse
+     */
+    public function update(CommentRequest $request, string $id, string $commentId): JsonResponse
+    {
+        $comment = (new UpdateCommentAction)($request, $id, $commentId);
 
         return sendSuccessResponse(__('messages.get_data'), $comment);
     }
