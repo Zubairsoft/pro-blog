@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Authors;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\CommentRequest;
+use Domains\Authors\Actions\Comments\DestroyCommentAction;
 use Domains\Authors\Actions\Comments\IndexCommentAction;
 use Domains\Authors\Actions\Comments\ShowCommentAction;
 use Domains\Authors\Actions\Comments\StoreCommentAction;
@@ -38,5 +39,12 @@ class CommentController extends Controller
         $comments = (new UpdateCommentAction)($request, $id, $commentId);
 
         return sendSuccessResponse(__('messages.update_data'), $comments);
+    }
+
+    public function destroy(CommentRequest $request, string $id)
+    {
+        $comments = (new DestroyCommentAction)($request, $id);
+
+        return sendSuccessResponse(__('messages.delete_data'), $comments);
     }
 }
