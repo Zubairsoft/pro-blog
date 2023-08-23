@@ -76,7 +76,14 @@ class CommentController extends Controller
         return sendSuccessResponse(__('messages.update_data'), CommentResource::make($comment));
     }
 
-    public function destroy(CommentRequest $request)
+    /**
+     * Handle the incoming request for destroy comments
+     * 
+     * @param CommentRequest $request
+     * 
+     * @return JsonResponse
+     */
+    public function destroy(CommentRequest $request):JsonResponse
     {
         $comment=(new DestroyCommentAction)($request);
 
