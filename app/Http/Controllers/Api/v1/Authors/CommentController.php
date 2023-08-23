@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\CommentRequest;
 use Domains\Authors\Actions\Comments\IndexCommentAction;
 use Domains\Authors\Actions\Comments\StoreCommentAction;
-use GuzzleHttp\Psr7\Request;
+use Domains\Authors\Actions\Comments\UpdateCommentAction;
+use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
@@ -20,6 +21,13 @@ class CommentController extends Controller
     public function store(CommentRequest $request,string $id)
     {
         $comments = (new StoreCommentAction)($request, $id);
+
+        return sendSuccessResponse(__('messages.create_data'), $comments);
+    }
+
+    public function update(CommentRequest $request,string $id,string $commentId)
+    {
+        $comments = (new UpdateCommentAction)($request, $id,$commentId);
 
         return sendSuccessResponse(__('messages.create_data'), $comments);
     }
