@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\CommentRequest;
+use App\Http\Resources\Admin\CommentResource;
+use Domains\Admins\Actions\Comments\DestroyCommentAction;
 use Domains\Admins\Actions\Comments\IndexCommentAction;
 use Domains\Admins\Actions\Comments\ShowCommentAction;
 use Domains\Admins\Actions\Comments\StoreCommentAction;
@@ -41,7 +43,7 @@ class CommentController extends Controller
     {
         $comment = (new StoreCommentAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $comment);
+        return sendSuccessResponse(__('messages.create_data'),CommentResource::make($comment) );
     }
 
     /**
@@ -56,7 +58,7 @@ class CommentController extends Controller
     {
         $comment = (new ShowCommentAction)($id, $commentId);
 
-        return sendSuccessResponse(__('messages.get_data'), $comment);
+        return sendSuccessResponse(__('messages.get_data'), CommentResource::make($comment));
     }
 
     /**
@@ -71,6 +73,13 @@ class CommentController extends Controller
     {
         $comment = (new UpdateCommentAction)($request, $id, $commentId);
 
-        return sendSuccessResponse(__('messages.get_data'), $comment);
+        return sendSuccessResponse(__('messages.update_data'), CommentResource::make($comment));
+    }
+
+    public function destroy(CommentRequest $request)
+    {
+        $comment=(new DestroyCommentAction)($request);
+
+        return sendSuccessResponse(__('messages.destroy_data'),$comment);
     }
 }
