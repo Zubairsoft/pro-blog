@@ -2,6 +2,7 @@
 
 namespace Domains\Admins\Actions\Comments;
 
+use App\Http\Resources\Admin\CommentResource;
 use Domains\Repository\CommentRepository;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,6 @@ final class IndexCommentAction
     {
         $comments = (new CommentRepository())->index($request, $postId);
 
-        return $comments;
+        return CommentResource::collection($comments)->appends($request->query())->toArray();
     }
 }
