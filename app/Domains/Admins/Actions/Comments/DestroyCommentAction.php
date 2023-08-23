@@ -10,6 +10,8 @@ final class DestroyCommentAction
 {
     public function __invoke(CommentRequest $request, $postId): int
     {
- 
+        $comment = (new CommentRepository())->destroy($request, $postId);
+
+        return $comment;
     }
 }
