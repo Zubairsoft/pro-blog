@@ -2,7 +2,7 @@
 
 namespace Domains\Admins\Actions\Comments;
 
-use App\Http\Resources\Admin\CommentResource;
+use App\Http\Resources\Admins\Comments\CommentResource;
 use Domains\Repository\CommentRepository;
 use Illuminate\Http\Request;
 

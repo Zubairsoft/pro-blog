@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\CommentRequest;
-use App\Http\Resources\Admin\CommentResource;
+use App\Http\Resources\Admins\Comments\CommentResource;
 use Domains\Admins\Actions\Comments\DestroyCommentAction;
 use Domains\Admins\Actions\Comments\IndexCommentAction;
 use Domains\Admins\Actions\Comments\ShowCommentAction;
