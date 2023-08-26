@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activation_tokens', function (Blueprint $table) {
+        Schema::create('otp_activations', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuidMorphs('tokenable');
             $table->string('email');
-            $table->string('token');
-            $table->string('created_at');
+            $table->string('otp');
+            $table->string('type');
+
+            $table->timestamps();
         });
     }
 
