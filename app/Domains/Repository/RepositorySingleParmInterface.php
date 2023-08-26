@@ -2,7 +2,7 @@
 
 namespace Domains\Repository;
 
-interface RepositoryInterface
+interface RepositorySingleParmInterface
 {
     public function index($request);
 

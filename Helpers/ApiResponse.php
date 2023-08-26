@@ -17,7 +17,7 @@ function sendFailedResponse($message = 'failed', $data = null, $status_code = 40
     $response = [
         'status' => 'failed',
         'message' => $message,
-        'data' => $data
+        'errors' => $data
     ];
 
     return response()->json($response, $status_code);

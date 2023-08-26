@@ -5,7 +5,7 @@ namespace Domains\Repository;
 use Domains\Authors\DataTransferToObject\BookmarkData;
 use Illuminate\Support\Facades\Auth;
 
-class BookmarkRepository implements RepositoryInterface
+class BookmarkRepository implements RepositorySingleParmWithoutUpdateInterface
 {
     public function index($request)
     {
@@ -30,11 +30,6 @@ class BookmarkRepository implements RepositoryInterface
         $auth = Auth::user();
 
         return $auth->bookmarks()->findOrFail($id);
-    }
-
-    public function update($request,$id)
-    {
-        
     }
 
     public function destroy($request)
