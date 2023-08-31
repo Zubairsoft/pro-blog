@@ -5,6 +5,7 @@ namespace Domains\Authors\Actions\Posts;
 use App\Http\Requests\Authors\PostRequest;
 use App\Models\Post;
 use Domains\Authors\DataTransferToObject\PostData;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 
 final class UpdatePostAction
@@ -15,6 +16,10 @@ final class UpdatePostAction
         $author = Auth::user();
 
         $post = $author->posts()->findOrFail($id);
+
+        if ($request->user()->cannot('update', $post)) {
+            throw new AuthorizationException();
+        }
 
         $post->update($attributes);
 
