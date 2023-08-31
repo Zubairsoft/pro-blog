@@ -44,8 +44,8 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::name('comments')->prefix('{id}/comments')->group(function () {
             Route::get('/', [CommentController::class, 'index'])->name('index');
             Route::post('/', [CommentController::class, 'store'])->name('store');
-            Route::get('/{id}', [CommentController::class, 'show'])->name('show');
-            Route::patch('/{id}', [CommentController::class, 'update'])->name('update');
+            Route::get('/{commentId}', [CommentController::class, 'show'])->name('show');
+            Route::patch('/{commentId}', [CommentController::class, 'update'])->name('update');
             Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
         });
     });
