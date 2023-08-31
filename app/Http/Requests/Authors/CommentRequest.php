@@ -51,6 +51,14 @@ class CommentRequest extends FormRequest
 
     public function DeletionRules(): array
     {
-        return [];
+            return [
+                'ids' => [
+                    'required',
+                    'array',
+                ],
+                'ids.*' => [
+                    'uuid'
+                ]
+            ];
     }
 }
