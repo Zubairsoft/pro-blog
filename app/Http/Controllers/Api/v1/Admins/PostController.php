@@ -95,8 +95,8 @@ class PostController extends Controller
    */
   public function destroy(PostRequest $request): JsonResponse
   {
-    $post = (new DestroyPostAction)($request);
+     (new DestroyPostAction)($request);
 
-    return sendSuccessResponse(__('messages.delete_data'), $post);
+    return sendSuccessResponse(__('messages.delete_data'));
   }
 }
