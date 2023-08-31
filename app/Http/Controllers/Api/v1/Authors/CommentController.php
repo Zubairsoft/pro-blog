@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\v1\Authors;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\CommentRequest;
+use App\Http\Resources\Authors\Comments\CommentResource;
+use App\Models\Comment;
 use Domains\Authors\Actions\Comments\DestroyCommentAction;
 use Domains\Authors\Actions\Comments\IndexCommentAction;
 use Domains\Authors\Actions\Comments\ShowCommentAction;
@@ -39,9 +41,9 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request, string $id): JsonResponse
     {
-        $comments = (new StoreCommentAction)($request, $id);
+        $comment = (new StoreCommentAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $comments);
+        return sendSuccessResponse(__('messages.create_data'), CommentResource::make( $comment));
     }
 
     /**
@@ -54,9 +56,11 @@ class CommentController extends Controller
      */
     public function show(string $id, string $commentId): JsonResponse
     {
-        $comments = (new ShowCommentAction)($id, $commentId);
+        $this->authorize('show',Comment::class);
 
-        return sendSuccessResponse(__('messages.get_data'), $comments);
+        $comment = (new ShowCommentAction)($id, $commentId);
+
+        return sendSuccessResponse(__('messages.get_data'), CommentResource::make( $comment));
     }
 
     /**
@@ -70,9 +74,9 @@ class CommentController extends Controller
      */
     public function update(CommentRequest $request, string $id, string $commentId): JsonResponse
     {
-        $comments = (new UpdateCommentAction)($request, $id, $commentId);
+        $comment = (new UpdateCommentAction)($request, $id, $commentId);
 
-        return sendSuccessResponse(__('messages.update_data'), $comments);
+        return sendSuccessResponse(__('messages.update_data'), CommentResource::make( $comment));
     }
 
     /**
@@ -85,8 +89,8 @@ class CommentController extends Controller
      */
     public function destroy(CommentRequest $request, string $id): JsonResponse
     {
-        $comments = (new DestroyCommentAction)($request, $id);
+         (new DestroyCommentAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.delete_data'), $comments);
+        return sendSuccessResponse(__('messages.delete_data'));
     }
 }
