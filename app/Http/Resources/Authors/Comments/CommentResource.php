@@ -4,6 +4,7 @@ namespace App\Http\Resources\Authors\Comments;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class CommentResource extends JsonResource
 {
@@ -16,7 +17,8 @@ class CommentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'comment' => $this->comment
+            'comment' => $this->comment,
+            'user' => UserResource::make($this->userable)
         ];
     }
 }
