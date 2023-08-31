@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PostPolicy
 {
-
     /**
      * Determine whether the user can update the model.
      */
