@@ -85,8 +85,8 @@ class CommentController extends Controller
      */
     public function destroy(CommentRequest $request):JsonResponse
     {
-        $comment=(new DestroyCommentAction)($request);
+        (new DestroyCommentAction)($request);
 
-        return sendSuccessResponse(__('messages.destroy_data'),$comment);
+        return sendSuccessResponse(__('messages.destroy_data'));
     }
 }
