@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\ModelEloquent\ReplayCommentEloquent;
+use App\Models\ModelEloquent\ReplyCommentEloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ReplayComment extends BaseModel
+class ReplyComment extends BaseModel
 {
     use SoftDeletes;
-    use ReplayCommentEloquent;
+    use ReplyCommentEloquent;
 
     protected $fillable = [
-        'comment_id',
+        'user_id',
+        'user_type',
+        'reply',
         'is_seen'
     ];
 

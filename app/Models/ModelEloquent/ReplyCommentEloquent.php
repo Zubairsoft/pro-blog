@@ -6,7 +6,7 @@ use App\Models\Comment;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-trait ReplayCommentEloquent
+trait ReplyCommentEloquent
 {
 
     /**
