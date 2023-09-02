@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\ReplyCommentRequest;
+use Domains\Admins\Actions\ReplyComments\DestroyReplyCommentAction;
 use Domains\Admins\Actions\ReplyComments\StoreReplyCommentAction;
 use Domains\Admins\Actions\ReplyComments\UpdateReplyCommentAction;
 use Illuminate\Http\JsonResponse;
@@ -38,8 +39,23 @@ class ReplyCommentController extends Controller
      */
     public function update(ReplyCommentRequest $request, string $id, string $commentId, string $replyCommentId): JsonResponse
     {
-        $replyComment = (new UpdateReplyCommentAction)($request, $id, $commentId,$replyCommentId);
+        $replyComment = (new UpdateReplyCommentAction)($request, $id, $commentId, $replyCommentId);
 
         return sendSuccessResponse(__('messages.update_data'), $replyComment);
+    }
+
+    /**
+     * Handle the incoming request for for delete reply comments
+     * @param ReplyCommentRequest $request
+     * @param string $id
+     * @param string $commentId
+     * 
+     * @return JsonResponse
+     */
+    public function destroy(ReplyCommentRequest $request, string $id, string $commentId): JsonResponse
+    {
+        (new DestroyReplyCommentAction)($request, $id, $commentId);
+
+        return sendSuccessResponse(__('messages.delete_data'));
     }
 }
