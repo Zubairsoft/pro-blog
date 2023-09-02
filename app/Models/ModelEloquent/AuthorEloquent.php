@@ -6,7 +6,7 @@ use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\OtpActivation;
 use App\Models\Post;
-use App\Models\ReplayComment;
+use App\Models\ReplyComment;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -32,8 +32,8 @@ trait AuthorEloquent
         return $this->morphMany(Comment::class, 'userable');
     }
 
-    public function replayComments(): MorphMany
+    public function replyComments(): MorphMany
     {
-        return $this->morphMany(ReplayComment::class, 'user');
+        return $this->morphMany(ReplyComment::class, 'user');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models\ModelEloquent;
 use App\Models\Comment;
 use App\Models\OtpActivation;
 use App\Models\Post;
-use App\Models\ReplayComment;
+use App\Models\ReplyComment;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -33,8 +33,8 @@ trait AdminEloquent
         return $this->morphMany(Comment::class, 'userable');
     }
 
-    public function replayComments(): MorphMany
+    public function replyComments(): MorphMany
     {
-        return $this->morphMany(ReplayComment::class, 'user');
+        return $this->morphMany(ReplyComment::class, 'user');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models\ModelEloquent;
 
-use App\Models\ReplayComment;
+use App\Models\ReplyComment;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
@@ -13,8 +13,8 @@ trait CommentEloquent
         return $this->morphTo();
     }
 
-    public function relayComments(): HasMany
+    public function replyComments(): HasMany
     {
-        return $this->hasMany(ReplayComment::class);
+        return $this->hasMany(ReplyComment::class);
     }
 }
