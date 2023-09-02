@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\ReplyCommentRequest;
+use App\Http\Resources\Admins\ReplyComments\ReplyCommentResource;
 use Domains\Admins\Actions\ReplyComments\DestroyReplyCommentAction;
 use Domains\Admins\Actions\ReplyComments\StoreReplyCommentAction;
 use Domains\Admins\Actions\ReplyComments\UpdateReplyCommentAction;
@@ -24,7 +25,7 @@ class ReplyCommentController extends Controller
     {
         $replyComment = (new StoreReplyCommentAction)($request, $id, $commentId);
 
-        return sendSuccessResponse(__('messages.create_data'), $replyComment);
+        return sendSuccessResponse(__('messages.create_data'), ReplyCommentResource::make($replyComment));
     }
 
     /**
@@ -41,7 +42,7 @@ class ReplyCommentController extends Controller
     {
         $replyComment = (new UpdateReplyCommentAction)($request, $id, $commentId, $replyCommentId);
 
-        return sendSuccessResponse(__('messages.update_data'), $replyComment);
+        return sendSuccessResponse(__('messages.update_data'), ReplyCommentResource::make($replyComment));
     }
 
     /**
