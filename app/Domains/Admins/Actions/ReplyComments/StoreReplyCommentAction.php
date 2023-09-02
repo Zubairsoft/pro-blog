@@ -19,6 +19,6 @@ class StoreReplyCommentAction
 
         $replayComment = $comment->replyComments()->create($attributes);
 
-        return $replayComment;
+        return $replayComment->fresh();
     }
 }
