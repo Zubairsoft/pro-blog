@@ -10,7 +10,7 @@ final class ReplyCommentData extends Data
 {
 
     public function __construct(
-        public ?string  $replay,
+    public ?string  $reply,
         public ?string $is_seen,
         public ?string $user_id,
         public ?string $user_type,
@@ -20,8 +20,8 @@ final class ReplyCommentData extends Data
     public static function fromRequest($request): ReplyCommentData
     {
         return new self(
-            $request->post('replay'),
-            $request->post('name_en'),
+            $request->post('reply'),
+            $request->post('is_seen'),
             Auth::user()->id,
             Admin::class,
         );
