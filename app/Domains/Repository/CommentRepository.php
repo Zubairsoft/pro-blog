@@ -5,6 +5,7 @@ namespace Domains\Repository;
 use App\Models\Comment;
 use App\Models\Post;
 use Domains\Authors\DataTransferToObject\CommentData;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 
 class CommentRepository implements RepositoryMultiParmInterface
@@ -26,7 +27,7 @@ class CommentRepository implements RepositoryMultiParmInterface
 
         $auth = Auth::user();
 
-        return $auth->comments()->create($attributes + ['post_id' => $post->id]);
+        return $auth->comments()->with('userable')->create($attributes + ['post_id' => $post->id]);
     }
 
     public function show($id, $commentId): Comment
@@ -44,15 +45,26 @@ class CommentRepository implements RepositoryMultiParmInterface
 
         $comment = $post->comments()->findOrFail($commentId);
 
+        if ($request->user()->cannot('update', $comment)) {
+            throw new AuthorizationException();
+        }
+
         $comment->update($attributes);
 
         return $comment;
     }
 
-    public function destroy($request, $id): int
+    public function destroy($request, $id): void
     {
         $post = Post::query()->findOrFail($id);
 
-        return $post->comments()->whereIn('id', $request->ids)->delete();
+        $comments =  $post->comments()->whereIn('id', $request->ids)->get();
+
+        foreach ($comments as $comment) {
+            if ($request->user()->cannot('destroy', $comment)) {
+                throw new AuthorizationException();
+            }
+            $comment->delete();
+        }
     }
 }

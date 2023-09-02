@@ -31,6 +31,13 @@ Route::middleware('auth:author-api')->group(function () {
         Route::get('/{id}', [PostController::class, 'show'])->name('show');
         Route::patch('/{id}', [PostController::class, 'update'])->name('update');
         Route::delete('/', [PostController::class, 'destroy'])->name('destroy');
+        Route::name('comments')->prefix('{id}/comments')->group(function () {
+            Route::get('/', [CommentController::class, 'index'])->name('index');
+            Route::post('/', [CommentController::class, 'store'])->name('store');
+            Route::get('/{commentId}', [CommentController::class, 'show'])->name('show');
+            Route::patch('/{commentId}', [CommentController::class, 'update'])->name('update');
+            Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
+        });
     });
 
     Route::name('bookmarks.')->prefix('bookmarks')->group(function () {
@@ -38,12 +45,6 @@ Route::middleware('auth:author-api')->group(function () {
         Route::post('/', [BookmarkController::class, 'store'])->name('store');
         Route::get('/{id}', [BookmarkController::class, 'show'])->name('show');
         Route::delete('/', [BookmarkController::class, 'destroy'])->name('destroy');
-        Route::name('comments')->prefix('{id}/comments')->group(function () {
-            Route::get('/', [CommentController::class, 'index'])->name('index');
-            Route::post('/', [CommentController::class, 'store'])->name('store');
-            Route::get('/{id}', [CommentController::class, 'show'])->name('show');
-            Route::patch('/{id}', [CommentController::class, 'update'])->name('update');
-            Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
-        });
+      
     });
 });
