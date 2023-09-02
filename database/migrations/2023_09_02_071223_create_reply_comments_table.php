@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('replay_comments', function (Blueprint $table) {
+        Schema::create('reply_comments', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('comment_id');
+            $table->string('reply');
             $table->uuidMorphs('user');
-            $table->boolean('is_seen');
+            $table->boolean('is_seen')->default(true);
 
             $table->foreign('comment_id')->references('id')->on('comments')->onUpdate('cascade')->onDelete('cascade');
-            
+
             $table->softDeletes();
             $table->timestamps();
         });
