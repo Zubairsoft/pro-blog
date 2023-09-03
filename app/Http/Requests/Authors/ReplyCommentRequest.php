@@ -24,23 +24,43 @@ class ReplyCommentRequest extends FormRequest
      */
     public function rules(): array
     {
-         return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
-
+        return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
     }
 
-    
+
     public function creationRules(): array
     {
-        return [];
+        return [
+            'reply' => [
+                'required',
+                'min:1',
+                'max:255'
+            ]
+        ];
     }
 
     public function updatingRules(): array
     {
-        return [];
+        return [
+            'reply' => [
+                'min:1',
+                'max:255',
+            ]
+        ];
     }
 
+    
     public function DeletionRules(): array
     {
-        return [];
+        return [
+            'ids' => [
+                'array',
+            ],
+            'ids.*' => [
+                'required',
+                'uuid'
+            ]
+
+        ];
     }
 }
