@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\v1\Authors\BookmarkController;
 use App\Http\Controllers\Api\v1\Authors\CommentController;
 use App\Http\Controllers\Api\v1\Authors\PostController;
+use App\Http\Controllers\Api\v1\Authors\ReplyCommentController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\SessionController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,12 @@ Route::middleware('auth:author-api')->group(function () {
             Route::get('/{commentId}', [CommentController::class, 'show'])->name('show');
             Route::patch('/{commentId}', [CommentController::class, 'update'])->name('update');
             Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
+
+            Route::name('reply_comments.')->prefix('{commentId}/reply-comments')->group(function () {
+                Route::post('/', [ReplyCommentController::class, 'store'])->name('store');
+                Route::patch('/{replyCommentId}', [ReplyCommentController::class, 'update'])->name('update');
+                Route::delete('/', [ReplyCommentController::class, 'destroy'])->name('destroy');
+            });
         });
     });
 
@@ -45,6 +52,5 @@ Route::middleware('auth:author-api')->group(function () {
         Route::post('/', [BookmarkController::class, 'store'])->name('store');
         Route::get('/{id}', [BookmarkController::class, 'show'])->name('show');
         Route::delete('/', [BookmarkController::class, 'destroy'])->name('destroy');
-      
     });
 });

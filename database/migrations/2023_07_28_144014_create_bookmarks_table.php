@@ -16,7 +16,7 @@ return new class extends Migration
             $table->uuidMorphs('userable');
             $table->uuid('post_id');
 
-            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onUpdate('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
 
             $table->timestamps();

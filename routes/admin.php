@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use App\Http\Controllers\Api\v1\Admins\BookmarkController;
 use App\Http\Controllers\Api\v1\Admins\CommentController;
+use App\Http\Controllers\Api\v1\Admins\ReplyCommentController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('sessions.')->prefix('sessions')->group(function () {
@@ -33,7 +34,7 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::delete('/', [TagController::class, 'destroy'])->name('destroy');
     });
 
-    Route::name('posts')->prefix('posts')->group(function () {
+    Route::name('posts.')->prefix('posts')->group(function () {
         Route::get('/', [PostController::class, 'index'])->name('index');
         Route::get('/own', [PostController::class, 'indexOwn'])->name('index_own');
         Route::post('/', [PostController::class, 'store'])->name('store');
@@ -41,12 +42,18 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::patch('/{id}', [PostController::class, 'update'])->name('update');
         Route::delete('/', [PostController::class, 'destroy'])->name('destroy');
 
-        Route::name('comments')->prefix('{id}/comments')->group(function () {
+        Route::name('comments.')->prefix('{id}/comments')->group(function () {
             Route::get('/', [CommentController::class, 'index'])->name('index');
             Route::post('/', [CommentController::class, 'store'])->name('store');
             Route::get('/{commentId}', [CommentController::class, 'show'])->name('show');
             Route::patch('/{commentId}', [CommentController::class, 'update'])->name('update');
             Route::delete('/', [CommentController::class, 'destroy'])->name('destroy');
+
+            Route::name('reply_comments.')->prefix('{commentId}/reply-comments')->group(function () {
+                Route::post('/', [ReplyCommentController::class, 'store'])->name('store');
+                Route::patch('/{replyCommentId}', [ReplyCommentController::class, 'update'])->name('update');
+                Route::delete('/', [ReplyCommentController::class, 'destroy'])->name('destroy');
+            });
         });
     });
 
