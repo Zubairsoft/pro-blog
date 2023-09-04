@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\v1\Authors\BookmarkController;
 use App\Http\Controllers\Api\v1\Authors\CommentController;
 use App\Http\Controllers\Api\v1\Authors\PostController;
+use App\Http\Controllers\Api\v1\Authors\ReplyCommentController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\SessionController;
 use Illuminate\Support\Facades\Route;
