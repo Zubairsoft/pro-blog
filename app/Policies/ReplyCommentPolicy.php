@@ -13,7 +13,7 @@ class ReplyCommentPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(ReplyComment $replyComment): bool
+    public function update($user,ReplyComment $replyComment): bool
     {
         $user = Auth::user();
 
