@@ -2,6 +2,7 @@
 
 namespace Domains\Admins\DataTransferToObject;
 
+use Domains\Supports\Enums\GenderEnum;
 use Spatie\LaravelData\Data;
 
 final class AdminData extends Data
@@ -24,8 +25,17 @@ final class AdminData extends Data
             $request->post('email'),
             $request->post('password'),
             $request->post('is_active'),
-            $request->post('gender'),
+            self::HandleGender($request->post('gender')),
             $request->post('local')
         );
+    }
+
+    private static function HandleGender($gender): int|null
+    {
+        if (isset($gender)) {
+            return GenderEnum::getValue($gender);
+        }
+
+        return null;
     }
 }
