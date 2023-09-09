@@ -2,9 +2,12 @@
 
 namespace App\Http\Requests\Admins;
 
+use Domains\Supports\Enums\GenderEnum;
+use Domains\Supports\Enums\LocalEnum;
 use Domains\Supports\Traits\Http\HttpRequest;
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 
 class AuthorRequest extends FormRequest
 {
@@ -24,23 +27,96 @@ class AuthorRequest extends FormRequest
      */
     public function rules(): array
     {
-         return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
-
+        return $this->RegisterRequestRules($this->creationRules(), $this->updatingRules(), $this->DeletionRules());
     }
 
-    
+
     public function creationRules(): array
     {
-        return [];
+        return [
+            'first_name' => [
+                'required',
+                'min:3',
+                'max:255',
+            ],
+            'last_name' => [
+                'required',
+                'min:3',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('admins', 'email'),
+            ],
+            'gender' => [
+                'required',
+                Rule::in(GenderEnum::getKeys()),
+            ],
+            'password' => [
+                'required',
+                'min:8',
+                'confirmed',
+            ],
+            'avatar' => [
+                File::types(['png', 'jpg', 'jpeg'])->max(2 * 1024),
+            ],
+            'is_active' => [
+                Rule::in(['true', 'false', 1, 0, true, false])
+            ],
+            'local' => [
+                'required',
+                Rule::in(LocalEnum::getValues())
+            ]
+        ];
     }
 
     public function updatingRules(): array
     {
-        return [];
+        return [
+            'first_name' => [
+                'min:3',
+                'max:255',
+            ],
+            'last_name' => [
+                'min:3',
+                'max:255',
+            ],
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('admins', 'email'),
+            ],
+            'gender' => [
+                Rule::in(GenderEnum::getKeys()),
+            ],
+            'password' => [
+                'min:8',
+                'confirmed',
+            ],
+            'avatar' => [
+                File::types(['png', 'jpg', 'jpeg'])->max(2 * 1024),
+            ],
+            'is_active' => [
+                Rule::in(['true', 'false', 1, 0, true, false])
+            ],
+            'local' => [
+                Rule::in(LocalEnum::getValues())
+            ]
+        ];
     }
 
     public function DeletionRules(): array
     {
-        return [];
+        return [
+            'ids' => [
+                'required',
+                'array',
+            ],
+            'ids.*' => [
+                'required',
+                'uuid',
+            ],
+        ];
     }
 }
