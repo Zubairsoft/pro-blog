@@ -46,7 +46,7 @@ class AdminRequest extends FormRequest
             ],
             'gender' => [
                 'required',
-                Rule::in(GenderEnum::getValues()),
+                Rule::in(GenderEnum::getKeys()),
             ],
             'password' => [
                 'required',
@@ -79,7 +79,7 @@ class AdminRequest extends FormRequest
                 Rule::unique('admins', 'email'),
             ],
             'gender' => [
-                Rule::in(GenderEnum::getValues()),
+                Rule::in(GenderEnum::getKeys()),
             ],
             'password' => [
                 'min:8',
