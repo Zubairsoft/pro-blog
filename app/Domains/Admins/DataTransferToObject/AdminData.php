@@ -8,7 +8,7 @@ final class AdminData extends Data
 {
 
     public function __construct(
-        public ?string  $name,
+        public ?string $name,
         public ?string $email,
         public ?string $password,
         public ?bool $is_active,
