@@ -19,7 +19,17 @@ use Spatie\Permission\Traits\HasRoles;
 
 class Author extends Authenticatable implements HasMedia
 {
-    use HasFactory, HasUuids, HasApiTokens, Notifiable, AuthorEloquent, AuthorAttributes, HasRoles, InteractsWithMedia, ActivateAccount, HasMediaFromRequest, HasSearch;
+    use HasFactory,
+        HasUuids,
+        HasApiTokens,
+        Notifiable,
+        AuthorEloquent,
+        AuthorAttributes,
+        HasRoles,
+        InteractsWithMedia,
+        ActivateAccount,
+        HasMediaFromRequest,
+        HasSearch;
 
     protected $fillable = [
         'first_name',
