@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\ModelAttributes\AdminAttributes;
 use App\Models\ModelEloquent\AdminEloquent;
 use Domains\Supports\Traits\ActivateAccount;
+use Domains\Supports\Traits\HasSearch;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
@@ -26,8 +27,9 @@ class Admin extends Authenticatable  implements HasMedia
         ActivateAccount,
         AdminEloquent,
         AdminAttributes,
-        HasRoles;
-
+        HasRoles,
+        HasSearch;
+        
     /**
      * The attributes that are mass assignable.
      *
