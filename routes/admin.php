@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Admins\AdminController;
+use App\Http\Controllers\Api\v1\Admins\AuthorController;
 use App\Http\Controllers\Api\v1\Admins\PostController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\ProfileController;
 use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
@@ -26,6 +28,23 @@ Route::name('sessions.')->prefix('sessions')->group(function () {
 });
 
 Route::middleware('auth:admin-api')->group(function () {
+    Route::middleware('role:super admin')->group(function () {
+        Route::name('admins.')->prefix('admins')->group(function () {
+            Route::get('/', [AdminController::class, 'index'])->name('index');
+            Route::post('/', [AdminController::class, 'store'])->name('store');
+            Route::get('/{id}', [AdminController::class, 'show'])->name('show');
+            Route::patch('/{id}', [AdminController::class, 'update'])->name('update');
+            Route::delete('/', [AdminController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::name('authors.')->prefix('authors')->group(function () {
+            Route::get('/', [AuthorController::class, 'index'])->name('index');
+            Route::post('/', [AuthorController::class, 'store'])->name('store');
+            Route::get('/{id}', [AuthorController::class, 'show'])->name('show');
+            Route::patch('/{id}', [AuthorController::class, 'update'])->name('update');
+            Route::delete('/', [AuthorController::class, 'destroy'])->name('destroy');
+        });
+    });
     Route::name('tags')->prefix('tags')->group(function () {
         Route::get('/', [TagController::class, 'index'])->name('index');
         Route::post('/', [TagController::class, 'store'])->name('store');
