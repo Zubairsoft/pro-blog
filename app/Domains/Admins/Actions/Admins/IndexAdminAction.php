@@ -2,6 +2,7 @@
 
 namespace Domains\Admins\Actions\Admins;
 
+use App\Http\Resources\Admins\AdminResource;
 use App\Models\Admin;
 use Domains\Supports\Enums\GenderEnum;
 use Illuminate\Database\Eloquent\Builder;
@@ -15,24 +16,24 @@ final class IndexAdminAction
 
         $searchText = $request->input('searchText');
 
-        $gender = $request->input('gender') ? (in_array($request->gender, GenderEnum::getKeys()) ? $request->gender : false) : false;
+        $gender = $request->input('gender') ? (in_array($request->gender, GenderEnum::getKeys()) ? GenderEnum::getValue($request->gender) : false) : false;
 
         $sortByName = $request->input('sortByName') ?? 'asc';
 
         $sortBy = $request->input('sortBy') ?? 'desc';
 
-        $query = Admin::query()->when(
+        $admins = Admin::query()->when(
             $searchText,
             fn (Builder $builder) => $builder->search(['name', 'email'], $searchText)
         )->when(
             $gender,
             fn (Builder $builder) =>
-            $builder->where('gender', $request->gender)
+            $builder->where('gender', $gender)
         )
             ->orderBy('created_at', $sortBy)
             ->orderBy('name', $sortByName)
-            ->perPage($perPage);
+            ->paginate($perPage);
 
-        return $query;
+        return AdminResource::collection($admins)->appends($request->query())->toArray();
     }
 }
