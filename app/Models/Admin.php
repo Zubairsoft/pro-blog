@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\ModelAttributes\AdminAttributes;
 use App\Models\ModelEloquent\AdminEloquent;
+use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
 use Domains\Supports\Traits\HasSearch;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -29,7 +30,7 @@ class Admin extends Authenticatable  implements HasMedia
         AdminAttributes,
         HasRoles,
         HasSearch;
-        
+
     /**
      * The attributes that are mass assignable.
      *
@@ -62,6 +63,7 @@ class Admin extends Authenticatable  implements HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
         'is_active' => 'boolean',
+        'gender' => GenderEnum::class
     ];
 
     public function registerMediaCollections(): void
