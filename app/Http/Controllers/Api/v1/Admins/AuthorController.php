@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\AuthorRequest;
+use App\Http\Resources\Admins\AuthorResource;
 use Domains\Admins\Actions\Authors\DestroyAuthorAction;
 use Domains\Admins\Actions\Authors\IndexAuthorAction;
 use Domains\Admins\Actions\Authors\ShowAuthorAction;
@@ -37,9 +38,9 @@ class AuthorController extends Controller
      */
     public function store(AuthorRequest $request): JsonResponse
     {
-        $admin = (new StoreAuthorAction)($request);
+        $author = (new StoreAuthorAction)($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.create_data'), AuthorResource::make($author));
     }
 
     /**
@@ -51,9 +52,9 @@ class AuthorController extends Controller
      */
     public function show(string $id): JsonResponse
     {
-        $admin = (new ShowAuthorAction())($id);
+        $author = (new ShowAuthorAction())($id);
 
-        return sendSuccessResponse(__('messages.get_data'), $admin);
+        return sendSuccessResponse(__('messages.get_data'), AuthorResource::make($author));
     }
 
     /**
@@ -65,9 +66,9 @@ class AuthorController extends Controller
      */
     public function update(AuthorRequest $request, string $id): JsonResponse
     {
-        $admin = (new UpdateAuthorAction)($request, $id);
+        $author = (new UpdateAuthorAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.update_data'), AuthorResource::make($author));
     }
 
     /**
@@ -79,8 +80,8 @@ class AuthorController extends Controller
      */
     public function  destroy(AuthorRequest $request): JsonResponse
     {
-        $admin = (new DestroyAuthorAction)($request);
+          (new DestroyAuthorAction)($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.delete_data'));
     }
 }

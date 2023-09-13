@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\AdminRequest;
+use App\Http\Resources\Admins\AdminResource;
 use Domains\Admins\Actions\Admins\DestroyAdminAction;
 use Domains\Admins\Actions\Admins\IndexAdminAction;
 use Domains\Admins\Actions\Admins\ShowAdminAction;
@@ -39,7 +40,7 @@ class AdminController extends Controller
     {
         $admin = (new StoreAdminAction)($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.create_data'), AdminResource::make($admin));
     }
 
     /**
@@ -53,7 +54,7 @@ class AdminController extends Controller
     {
         $admin = (new ShowAdminAction())($id);
 
-        return sendSuccessResponse(__('messages.get_data'), $admin);
+        return sendSuccessResponse(__('messages.get_data'), AdminResource::make($admin));
     }
 
     /**
@@ -67,7 +68,7 @@ class AdminController extends Controller
     {
         $admin = (new UpdateAdminAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.update_data'), AdminResource::make($admin));
     }
 
     /**
@@ -81,6 +82,6 @@ class AdminController extends Controller
     {
         $admin = (new DestroyAdminAction)($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $admin);
+        return sendSuccessResponse(__('messages.delete_data'), $admin);
     }
 }
