@@ -11,8 +11,8 @@ final class UpdateAuthorAction
     public function __invoke(AuthorRequest $request, string $id): Author
     {
         $attributes = unsetArrayEmptyParam(AuthorData::fromRequest($request)->toArray());
-
-        $author = Author::query()->firstOrFail($id);
+        
+        $author = Author::query()->findOrFail($id);
 
         $author->update($attributes);
 
