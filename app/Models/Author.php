@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\ModelAttributes\AuthorAttributes;
 use App\Models\ModelEloquent\AuthorEloquent;
+use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
 use Domains\Supports\Traits\HasMediaFromRequest;
 use Domains\Supports\Traits\HasSearch;
@@ -44,6 +45,7 @@ class Author extends Authenticatable implements HasMedia
     protected $casts = [
         'email_verified_at' => 'datetime',
         'is_active' => 'boolean',
+        'gender' => GenderEnum::class
     ];
 
     protected $hidden = [
