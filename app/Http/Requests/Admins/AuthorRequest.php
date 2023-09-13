@@ -83,7 +83,6 @@ class AuthorRequest extends FormRequest
                 'max:255',
             ],
             'email' => [
-                'required',
                 'email',
                 Rule::unique('admins', 'email'),
             ],
