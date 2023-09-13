@@ -12,7 +12,7 @@ final class UpdateAdminAction
     {
         $attributes = unsetArrayEmptyParam(AdminData::fromRequest($request)->toArray());
 
-        $admin = Admin::query()->firstOrFail($id);
+        $admin = Admin::query()->findOrFail($id);
 
         $admin->update($attributes);
 
