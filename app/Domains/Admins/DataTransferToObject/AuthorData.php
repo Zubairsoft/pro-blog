@@ -15,7 +15,8 @@ final class AuthorData extends Data
         public ?string $password,
         public ?bool $is_active,
         public ?int $gender,
-        public ?bool $local
+        public ?bool $local,
+        public ?string $email_verified_at,
     ) {
     }
 
@@ -26,9 +27,10 @@ final class AuthorData extends Data
             $request->post('last_name'),
             $request->post('email'),
             $request->post('password'),
-            $request->post('is_active'),
+            $request->post('is_active') ? $request->boolean('is_active') : null,
             self::HandleGender($request->post('gender')),
             $request->post('local'),
+            now()
         );
     }
 

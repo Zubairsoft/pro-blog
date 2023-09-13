@@ -24,7 +24,7 @@ final class AdminData extends Data
             $request->post('name'),
             $request->post('email'),
             $request->post('password'),
-            $request->post('is_active'),
+            $request->post('is_active') ? $request->boolean('is_active') : null,
             self::HandleGender($request->post('gender')),
             $request->post('local')
         );
