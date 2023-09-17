@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Supports\Traits;
+namespace Domains\Supports\Traits\CommonAttributes;
 
 use Domains\Supports\Enums\LocalEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
