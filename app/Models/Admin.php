@@ -6,6 +6,7 @@ use App\Models\ModelAttributes\AdminAttributes;
 use App\Models\ModelEloquent\AdminEloquent;
 use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
+use Domains\Supports\Traits\HasMediaFromRequest;
 use Domains\Supports\Traits\HasSearch;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,7 +30,9 @@ class Admin extends Authenticatable  implements HasMedia
         AdminEloquent,
         AdminAttributes,
         HasRoles,
+        HasMediaFromRequest,
         HasSearch;
+        
 
     /**
      * The attributes that are mass assignable.
