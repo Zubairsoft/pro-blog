@@ -22,7 +22,7 @@ final class IndexPostAction
 
         $author = Auth::user();
 
-        $query = $author->posts()->when(
+        $query = $author->posts()->with(['tags', 'media'])->when(
             $searchText,
             fn (Builder $builder) => $builder->search([
                 'title_ar',
