@@ -11,6 +11,156 @@ use App\Http\Controllers\Api\v1\Admins\CommentController;
 use App\Http\Controllers\Api\v1\Admins\ReplyCommentController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('test', function () {
+    function canBuyMaximumItem($items, $money)
+    {
+
+        $moneyOptionOne = $money;
+        $moneyOptionTwo = $money;
+
+        $counterOne = 0;
+        $counterTwo = 0;
+
+
+        $result = [];
+
+        $pointerFromEnd = sizeof($items) - 1;
+
+        for ($i = 0; $i < sizeof($items); $i++) {
+
+            if ($moneyOptionOne >= $items[$i]) {
+                $moneyOptionOne -= $items[$i];
+                $result[0][] = $items[$i];
+                $counterOne++;
+            }
+
+            if ($moneyOptionTwo >= $items[$pointerFromEnd]) {
+                $moneyOptionTwo -= $items[$pointerFromEnd];
+                $result[1][] = $items[$pointerFromEnd];
+                $pointerFromEnd--;
+                $counterTwo++;
+            }
+        }
+
+        return  $counterOne > $counterTwo ? $result[0] : $result[1];
+    }
+
+    function threeSum($numbers)
+    {
+        $result = [];
+
+        for ($i = 0; $i < sizeof($numbers); $i++) {
+
+            for ($j = $i + 1; $j < sizeof($numbers); $j++) {
+
+                for ($k = $j + 1; $k < sizeof($numbers); $k++) {
+
+                    if ($numbers[$i] + $numbers[$j] + $numbers[$k] == 0) {
+                        array_push($result, [$numbers[$i], $numbers[$j], $numbers[$k]]);
+                    }
+                }
+            }
+        }
+
+        return $result;
+    }
+
+    function prefixOperations($values)
+    {
+        $stack = [];
+
+        $validOperation = ["+", "-", "*", "/"];
+
+        for ($i = 0; $i < sizeof($values); $i++) {
+            if (in_array($values[$i], $validOperation)) {
+                $stackOne = array_pop($stack);
+                $stackTwo = array_pop($stack);
+                switch ($values[$i]) {
+                    case '+':
+                        $stack[] = (int)$stackTwo + (int)$stackOne;
+                        break;
+                    case '-':
+                        $stack[] = (int)$stackTwo - (int)$stackOne;
+                        break;
+                    case '*':
+                        $stack[] = (int)$stackTwo * (int)$stackOne;
+                        break;
+                    case '/':
+                        $stack[] = (int)((int)$stackTwo / (int)$stackOne);
+                        break;
+                }
+            } else {
+
+                $stack[] = $values[$i];
+            }
+        }
+
+        return $stack;
+    }
+
+    function countValid(string $p)
+    {
+        $stack = [];
+
+        for ($i = 0; $i < strlen($p); $i++) {
+            if ($p[$i] == '(' ) {
+                if (empty($stack)) {
+                    $stack[] = $p[$i];
+                    continue;
+                }
+                if (end($stack) != '(') {
+                    $stack[] = $p[$i];
+                }
+                
+                
+            } else {
+                if (end($stack) != ')' && !empty($stack)) {
+                    $stack[] = $p[$i];
+                }
+            }
+        }
+
+        return count($stack);
+    }
+
+    function checkIsValidP($p)
+    { //()
+        //(){}
+        //{}{{}}
+        //({})
+        $stack = [];
+
+        $operation = ['(' => ')', '{' => '}'];
+
+        $len = strlen($p);
+
+        if ($len % 2 !== 0) {
+
+            return false;
+        }
+
+        for ($i = 0; $i < $len; $i++) {
+            if (array_key_exists($p[$i], $operation)) {
+                $stack[] = $p[$i];
+            } else {
+                if (!empty($stack)) {
+                    if ($operation[end($stack)] == $p[$i]) {
+                        array_pop($stack);
+                        continue;
+                    }
+
+                    return false;
+                }
+                return false;
+            }
+        }
+
+        return count($stack)==0;
+    }
+    
+    return checkIsValidP("()");
+});
+
 Route::name('sessions.')->prefix('sessions')->group(function () {
     Route::post('register', [SessionController::class, 'register'])->name('register');
     Route::post('login', [SessionController::class, 'login'])->name('login');

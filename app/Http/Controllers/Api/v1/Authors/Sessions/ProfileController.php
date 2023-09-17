@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Authors\Sessions;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Authors\ProfileRequest;
+use App\Http\Resources\Authors\Profiles\ProfileResource;
 use Domains\Authors\Actions\Profiles\UpdateProfileAction;
 use Domains\Authors\Actions\Profiles\ShowProfileAction;
 use Illuminate\Http\JsonResponse;
@@ -20,7 +21,7 @@ class ProfileController extends Controller
     {
         $author = (new ShowProfileAction)();
 
-        return sendSuccessResponse(__('messages.get_data'), $author);
+        return sendSuccessResponse(__('messages.get_data'), ProfileResource::make($author));
     }
 
     /**
@@ -34,6 +35,6 @@ class ProfileController extends Controller
     {
         $author = (new UpdateProfileAction)($request);
 
-        return sendSuccessResponse(__('messages.update'), $author);
+        return sendSuccessResponse(__('messages.update'), ProfileResource::make($author));
     }
 }

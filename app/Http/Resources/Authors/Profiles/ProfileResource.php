@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Admins;
+namespace App\Http\Resources\Authors\Profiles;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AuthorResource extends JsonResource
+class ProfileResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,12 +15,12 @@ class AuthorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
             'gender' => $this->gender_translate,
             'local' => $this->local,
-            'avatar' => $this->avatar,
-            'is_active' => $this->is_active
+            'avatar' => $this->avatar
         ];
     }
 }
