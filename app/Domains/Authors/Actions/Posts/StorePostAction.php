@@ -19,9 +19,9 @@ class StorePostAction
 
         $post->tags()->sync($request->tags);
 
-        if ($request->poster->isFile()) {
-            $post->addMediaFromRequest('poster')->toMediaCollection('poster');
-        }
+        $post->AddImageFromRequestIfExists($request,'poster','poster');
+
+        $post->AddMultipleImageFromRequestIfRequestIfExists($request,'images','post-images');
 
         return $post;
     }
