@@ -30,4 +30,15 @@ class PostPolicy
         }
         return $author->id === $post->authorable_id;
     }
+
+    /**
+     * Determine whether the user can delete the poster.
+     */
+    public function clearImage(Author $author, Post $post): bool
+    {
+        if (Auth::guard('web')->check()) {
+            return  Auth::guard('web')->user()->id === $post->authorable_id;
+        }
+        return $author->id === $post->authorable_id;
+    }
 }
