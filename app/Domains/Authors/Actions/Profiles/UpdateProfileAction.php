@@ -17,9 +17,7 @@ final class UpdateProfileAction
 
         $author->update($attributes);
 
-        if ($request->avatar?->isFile()) {
-            $author->addMediaFromRequest('avatar')->toMediaCollection('avatar');
-        }
+        $author->AddImageFromRequestIfExists($request, 'avatar', 'avatar');
 
         return $author;
     }

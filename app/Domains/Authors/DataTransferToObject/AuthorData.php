@@ -4,7 +4,7 @@ namespace Domains\Authors\DataTransferToObject;
 
 use Spatie\LaravelData\Data;
 
-class AuthorData extends Data
+final class AuthorData extends Data
 {
     public function __construct(
         public ?string $first_name,

@@ -63,4 +63,11 @@ class RouteServiceProvider extends ServiceProvider
             ->prefix('api/v1/author/')
             ->group(base_path('routes/author.php'));
     }
+
+    private function routeSupportMap()
+    {
+        Route::middleware('api')->name('supports.')
+            ->prefix('api/v1/supports/')
+            ->group(base_path('routes/support.php'));
+    }
 }

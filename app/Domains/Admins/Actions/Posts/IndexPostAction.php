@@ -2,6 +2,7 @@
 
 namespace Domains\Admins\Actions\Posts;
 
+use App\Http\Resources\Admins\Posts\PostResource;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -18,13 +19,13 @@ class IndexPostAction
 
         $sortBy = $request->input('sortBy') ?? 'desc';
 
-        $query = Post::query()->with('tags')->when($request->input('tagIds'), fn (Builder $query) => $query->whereHas('tags', fn (Builder $builder) => $builder->whereIn('tags.id', $request->tagIds)))
+        $posts = Post::query()->with(['tags','media'])->when($request->input('tagIds'), fn (Builder $query) => $query->whereHas('tags', fn (Builder $builder) => $builder->whereIn('tags.id', $request->tagIds)))
 
             ->when($searchText, fn (builder $builder) => $builder->search(['title_ar', 'title_en', 'description_ar', 'description_en'],$searchText))
             ->orderBy($orderBy, $sortBy)
 
             ->paginate($perPage);
 
-        return $query;
+        return PostResource::collection($posts)->appends($request->query())->toArray();
     }
 }

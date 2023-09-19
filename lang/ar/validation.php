@@ -131,7 +131,7 @@ return [
     'attributes' => [
         'name' => 'الاسم',
         'name_ar' => 'الاسم بالعربي',
-        'name_en'=>'الاسم بالانجليزي',
+        'name_en' => 'الاسم بالانجليزي',
         'local' => 'اللغة',
         'job_name' => 'اسم الوظيفة',
         'representative_name' => 'اسم الممثل',
@@ -248,6 +248,8 @@ return [
         'images' => 'صور الفعالية',
         'is_paid' => 'مدفوعة ؟',
         'is_limited' => 'محدودة ؟',
+        'comment' => 'تعليق',
+        'reply' => 'الرد',
     ],
 
     /*
