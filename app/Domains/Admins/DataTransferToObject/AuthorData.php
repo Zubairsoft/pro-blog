@@ -15,7 +15,7 @@ final class AuthorData extends Data
         public ?string $password,
         public ?bool $is_active,
         public ?int $gender,
-        public ?bool $local,
+        public ?string $local,
         public ?string $email_verified_at,
     ) {
     }

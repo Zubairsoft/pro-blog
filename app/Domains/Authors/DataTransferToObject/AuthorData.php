@@ -11,9 +11,8 @@ final class AuthorData extends Data
         public ?string $last_name,
         public ?string $email,
         public ?string $password,
-        public ?bool $is_active,
         public ?int $gender,
-        public ?bool $local
+        public ?string $local
     ) {
     }
 
@@ -24,7 +23,6 @@ final class AuthorData extends Data
             $request->post('last_name'),
             $request->post('email'),
             $request->post('password'),
-            $request->post('is_active'),
             $request->post('gender'),
             $request->post('local'),
         );
