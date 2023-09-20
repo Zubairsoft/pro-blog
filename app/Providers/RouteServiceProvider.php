@@ -34,6 +34,7 @@ class RouteServiceProvider extends ServiceProvider
             $this->routeAdminMap();
             $this->routeAuthorMap();
             $this->routeWebMap();
+            $this->routeSupportMap();
         });
     }
 
