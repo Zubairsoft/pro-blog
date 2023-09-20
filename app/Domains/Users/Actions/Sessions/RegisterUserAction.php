@@ -1,0 +1,25 @@
+<?php
+
+namespace Domains\Users\Actions;
+
+use App\Http\Requests\Users\Sessions\RegisterUserRequest;
+use App\Models\User;
+use Domains\Admins\DataTransferToObject\UserData;
+use Domains\Supports\Enums\RoleEnum;
+
+final class RegisterUserAction
+{
+    public function __invoke(RegisterUserRequest $request):User
+    {
+        $attributes = unsetArrayEmptyParam(UserData::fromRequest($request)->toArray());
+
+        $user = User::query()->create($attributes);
+
+        $user->AddImageFromRequestIfExists($request, 'avatar', 'avatar');
+
+        $user->assignRole(RoleEnum::USER);
+
+        return $user;
+
+    }
+}
