@@ -12,7 +12,8 @@ class ActivateAccountAction
 {
     public function __invoke(ActivateAccountRequest $request)
     {
-        $otpActivation = OtpActivation::query()->where([['type', '=', Author::class], ['email', '=', $request->email]])->first();
+        $otpActivation = OtpActivation::query()
+        ->where([['type', '=', Author::class], ['email', '=', $request->email],['otp','=',$request->otp]])->first();
 
         if (!$otpActivation) {
             throw new LogicException(__('auth.invalid_token'));
