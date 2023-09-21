@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Users\Actions;
+namespace Domains\Users\Actions\Sessions;
 
 use App\Exceptions\CustomException\LogicException;
 use App\Http\Requests\Users\Sessions\LoginUserRequest;
@@ -19,6 +19,7 @@ final class LoginUserAction
         $user = Auth::user();
 
         if ((new VerifiedEmailSpecification)->isAllowed($user)) {
+            resendVerificationCode($user);
             throw new LogicException(__('auth.verify_email'),422);
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Users\Actions;
+namespace Domains\Users\Actions\Sessions;
 
 use App\Http\Requests\Users\Sessions\RegisterUserRequest;
 use App\Models\User;
@@ -18,6 +18,8 @@ final class RegisterUserAction
         $user->AddImageFromRequestIfExists($request, 'avatar', 'avatar');
 
         $user->assignRole(RoleEnum::USER);
+
+        resendVerificationCode($user);
 
         return $user;
 
