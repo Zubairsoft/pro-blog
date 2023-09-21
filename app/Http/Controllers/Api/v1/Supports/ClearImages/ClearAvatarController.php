@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Supports\ClearImages;
 
 use App\Http\Controllers\Controller;
-use Domains\Supports\Action\ClearImages\ClearAvatarAction;
+use Domains\Supports\Actions\ClearImages\ClearAvatarAction;
 use Illuminate\Http\JsonResponse;
 
 class ClearAvatarController extends Controller
