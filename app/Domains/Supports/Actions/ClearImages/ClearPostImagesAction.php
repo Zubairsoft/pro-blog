@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Supports\Action\ClearImages;
+namespace Domains\Supports\Actions\ClearImages;
 
 use App\Http\Requests\Supports\ClearImages\ClearImageRequest;
 use App\Models\Post;
