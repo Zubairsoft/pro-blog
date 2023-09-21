@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Admins\DataTransferToObject;
+namespace Domains\Users\DataTransferToObject;
 
 use Domains\Supports\Enums\GenderEnum;
 use Spatie\LaravelData\Data;
