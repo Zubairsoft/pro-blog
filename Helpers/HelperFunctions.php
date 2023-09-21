@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\OtpActivation;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 function unsetArrayEmptyParam(array $array): array
@@ -36,4 +38,22 @@ function getAuthenticatedUser(): User | null
     }
 
     return null;
+}
+
+function  resendVerificationCode(object $user)
+{
+    $type = get_class($user);
+
+    $email = $user->email;
+
+    $otpActivation = OtpActivation::query()->where([['email', '=', $email], ['type', '=', $type]])->first();
+
+    if ($otpActivation) {
+        if (Carbon::parse($otpActivation->created_at)->addMinutes(5)->isPast()) {
+            $otpActivation->delete();
+            OtpActivation::generateOtpActivation($email, $type);
+        }
+    }
+
+    OtpActivation::generateOtpActivation($email, $type);
 }

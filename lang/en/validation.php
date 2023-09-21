@@ -158,13 +158,7 @@ return [
             'regex' => 'The :attribute must contain only letters',
             'min' => 'The length of the :attribute must be at least 3 characters'
         ],
-        'representative_name' => [
-            'regex' => 'The :attribute must contain only letters',
-            'min' => 'The length of the :attribute must be at least 8 characters'
-        ],
-        'representative_mobile' => [
-            'regex' => 'The :attribute must start with 5, followed by 8 digits only ',
-        ],
+
         'password' => [
             'min' => 'The length of the :attribute must be at least 6 characters'
         ],
@@ -174,86 +168,13 @@ return [
         'new_password' => [
             'min' => 'The length of the :attribute must be at least 6 characters'
         ],
-        'job_name' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'department' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'branch' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'line_manager_name' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'line_manager_job_title' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'line_manager_email' => [
-            'min' => 'The length of the :attribute should be at least 3 characters',
-            'max' => 'The length of the :attribute should be less than 255 characters',
-        ],
-        'code' => [
-            'unique' => 'The Certificate code already exists',
-        ],
-        'real_name' => [
-            'min' => 'The length of the :attribute should be at least 8 characters',
-            'max' => 'The length of the :attribute should be less than 27 characters',
-        ],
-        'city_id' => [
-            'exists' => 'The selected city is not available',
-            'integer' => 'The city must be a number',
-        ],
+
         'reason' => [
             'min' => 'The length of the :attribute should be at least 10 characters',
             'max' => 'The length of the :attribute should not be greater than 140 characters',
         ],
-        'starting_date' => [
-            'after' => 'The event starting date must be a date after today',
-        ],
-        'ending_date' => [
-            'after_or_equal' => 'The event ending date must be a date after or equal to event starting date',
-        ],
-        'image' => [
-            'required' => 'The event image is required',
-            'file' => 'The event image must be an image',
-            'max' => 'The event image must not be greater than 3 Megabytes',
-        ],
-        'number_of_hours' => [
-            'integer' => 'The number of hours must be a number',
-        ],
-        'enrollment_type' => [
-            'in' => 'The selected enrollment type is not available'
-        ],
-        'is_paid' => [
-            'in' => 'The selected fees is not available'
-        ],
-        'fees' => [
-            'numeric' => 'The fees must be a number',
-        ],
-        'maximum_number_of_participants' => [
-            'integer' => 'The maximum number of participants must be a number',
-        ],
-        'event_type_id' => [
-            'exists' => 'The selected event type is not available',
-            'integer' => 'The event type must be a number',
-        ],
-        'event_field_id' => [
-            'exists' => 'The selected event field is not available',
-            'integer' => 'The event field must be a number',
-        ],
-        'images' => [
-            'max' => 'Can not upload more than 10 pictures'
-        ],
-        'images.*' => [
-            'required' => 'The event image is required',
-            'max' => 'The event image must not be greater than 3 Megabytes',
-            'mimes' => 'The event image must be a file of type: :values.',
+        'email' => [
+            'exist' => 'account not fount',
         ]
     ],
 
@@ -270,9 +191,9 @@ return [
 
     'attributes' => [
         'name' => 'Name',
-        'name_ar'=>'Arabic Name',
-        'name_en'=>'English Name',
-        'local'=>'Language',
+        'name_ar' => 'Arabic Name',
+        'name_en' => 'English Name',
+        'local' => 'Language',
         'job_name' => 'Job Name',
         'representative_name' => 'Representative Name',
         'username' => 'Username',

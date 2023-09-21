@@ -39,6 +39,7 @@ class Author extends Authenticatable implements HasMedia
         'email',
         'email_verified_at',
         'password',
+        'local',
         'is_active',
     ];
 

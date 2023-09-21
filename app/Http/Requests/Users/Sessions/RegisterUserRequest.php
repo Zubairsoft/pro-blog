@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Authors\Sessions;
+namespace App\Http\Requests\Users\Sessions;
 
 use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Enums\LocalEnum;
@@ -9,7 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Validation\Rules\Password;
 
-class RegisterAuthorRequest extends FormRequest
+class RegisterUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

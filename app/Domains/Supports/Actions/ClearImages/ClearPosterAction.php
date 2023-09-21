@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Supports\Action\ClearImages;
+namespace Domains\Supports\Actions\ClearImages;
 
 use App\Models\Post;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

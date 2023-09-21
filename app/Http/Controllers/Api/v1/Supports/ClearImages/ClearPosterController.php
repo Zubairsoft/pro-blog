@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Supports\ClearImages;
 
 use App\Http\Controllers\Controller;
-use Domains\Supports\Action\ClearImages\ClearPosterAction;
+use Domains\Supports\Actions\ClearImages\ClearPosterAction;
 use Illuminate\Http\JsonResponse;
 
 class ClearPosterController extends Controller

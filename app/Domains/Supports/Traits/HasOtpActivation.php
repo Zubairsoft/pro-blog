@@ -2,6 +2,8 @@
 
 namespace Domains\Supports\Traits;
 
+use Illuminate\Support\Carbon;
+
 trait HasOtpActivation
 {
     public static function generateOtpActivation($email, $type)
@@ -11,5 +13,10 @@ trait HasOtpActivation
             'otp' => generateOtp(),
             'type' => $type
         ]);
+    }
+
+    public function hourIsPast(): bool
+    {
+        return Carbon::parse($this->created_at)->isPast();
     }
 }

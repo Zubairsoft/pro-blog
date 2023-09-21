@@ -14,7 +14,7 @@ final class AdminData extends Data
         public ?string $password,
         public ?bool $is_active,
         public ?int $gender,
-        public ?bool $local
+        public ?string $local
     ) {
     }
 

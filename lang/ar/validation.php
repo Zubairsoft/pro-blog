@@ -133,8 +133,6 @@ return [
         'name_ar' => 'الاسم بالعربي',
         'name_en' => 'الاسم بالانجليزي',
         'local' => 'اللغة',
-        'job_name' => 'اسم الوظيفة',
-        'representative_name' => 'اسم الممثل',
         'username' => 'اسم المُستخدم',
         'email' => 'البريد الالكتروني',
         'first_name' => 'الاسم الأول',
@@ -146,7 +144,6 @@ return [
         'address' => 'عنوان السكن',
         'phone' => 'الهاتف',
         'mobile' => 'الجوال',
-        'representative_mobile' => 'جوال الممثل',
         'age' => 'العمر',
         'gender' => 'الجنس',
         'day' => 'اليوم',
@@ -163,91 +160,19 @@ return [
         'time' => 'الوقت',
         'available' => 'مُتاح',
         'size' => 'الحجم',
-        'commercial_registration_document' => 'السجل التجاري',
         'avatar' => 'الصورة الشخصية',
         'purpose' => 'الغرض من استخدام المنصة',
         'department' => 'القسم',
         'branch' => 'الفرع',
         'city_id' => 'المدينة',
-        'line_manager_name' => 'اسم المدير المباشر',
-        'line_manager_job_title' => 'المسمى الوطيفي للمدير المباشر',
-        'line_manager_email' => 'البريد الاكتروني للمدير المباشر',
-        'code' => 'رمز الشهادة',
-        'real_name' => 'الاسم الحقيقي',
-        'birth_date' => 'تاريخ الميلاد',
-        'website' => 'الموقع الكتروني',
-        'picture' => 'الصورة',
         'nationality_id' => 'الجنسية',
-        'educational_institution' => 'المؤسسة التعليمية',
-        'graduation_year' => 'سنة التخرج',
-        'english_level' => 'مستوى اللغة الإنجليزية',
-        'arabic_level' => 'مستوى اللغة العربية',
-        'education_level_id' => 'أعلى مؤهل علمي',
-        'specialization_id' => 'التخصص',
-        'languages_ids' => 'رمز اللغات الأخرى',
-        'career_objective' => 'الهدف الوظيفي',
-        'years_of_experience' => 'عدد سنوات الخبرة',
-        'accept_part_time_work' => 'يقبل العمل بدوام جزئي',
         'cv' => 'السيرة الذاتية',
-        'job_title' => 'المسمّى الوظيفي',
-        'is_current' => 'هل مازلت بالوظيفة',
-        'date_started' => 'تاريخ بدء العمل',
-        'date_ended' => 'تاريخ انتهاء العمل',
-        'company_name' => 'اسم الجهة',
-        'sector_id' => 'القطاع / النشاط',
-        'tasks' => 'أهم المهام',
-        'achievements' => 'أهم الإنجازات',
-        'english_level_id' => 'مستوى اللغة الإنجليزية',
-        'arabic_level_id' => 'مستوى اللغة العربية',
-        'candidate_id' => 'المرشح',
         'attachment' => 'الملف المرفق',
         'reason' => 'سبب الإبلاغ',
-        'interview_title' => 'عنوان المقابلة',
-        'interviewer' => 'المقابل',
-        'interviewer_position' => 'منصب المقابل',
-        'interview_place' => 'مكان المقابلة',
-        'evaluation_form' => 'ملف التقييم',
-        'interview_date' => 'تاريخ المقابلة',
-        'interview_time' => 'وقت المقابلة',
-        'current_password' => 'كلمة السر الحالية',
-        'new_password' => 'كلمة السر الجديدة',
-        'recommendation_status' => 'التوصية',
-        'hiring_reason' => 'سبب التعيين',
-        'signed_form' => 'مستند قرار التعيين الموقع',
-        'contract_duration' => 'مدة العقد',
-        'contract_status' => 'حالة العقد',
-        'probationary_period' => 'الفترة التجريبية',
-        'basic_salary' => 'الراتب الأساسي',
-        'monthly_housing_allowance' => 'بدل السكن الشهري',
-        'monthly_transportation_allowance' => 'بدل المواصلات الشهري',
-        'other_allowances' => 'بدلات أخرى',
-        'total_monthly_salary' => 'الراتب الشهري الإجمالي',
-        'annual_vacation_entitlement' => 'الإجازة السنوية',
-        'annual_vacation_ticket' => 'تذاكر سفر الإجازة',
-        'medical_coverage_class' => 'مستوى التأمين الطبي',
-        'other_allowances_description' => 'وصف البدلات الأخرى',
-        'commissions' => 'العمولات',
-        'other_benefits' => 'امتيازات أخرى',
         'joining_date' => 'تاريخ مباشرة العمل',
         'is_agree' => 'الموافقة على تعيين الموظف',
         'expires_at' => 'تاريخ الانتهاء',
-        'today' => 'اليوم',
-        'event_title' => 'اسم الفعالية',
-        'event_description' => 'وصف الفعالية',
-        'image' => 'صورة اعلان الفعالية',
-        'link' => 'رابط الفعالية',
-        'starting_date' => 'تاريخ بدء الفعالية',
-        'ending_date' => 'تاريخ انتهاء الفعالية',
-        'number_of_hours' => 'عدد الساعات',
-        'fees' => 'رسوم المشاركة',
-        'enrollment_type' => 'نوع التسجيل',
-        'maximum_number_of_participants' => 'العدد الأقصى للمشاركين',
-        'what_do_participants_get' => 'على ماذا يحصل المشاركون',
-        'event_type_id' => 'نوع الفعالية',
-        'event_field_id' => 'المجال',
-        'images' => 'صور الفعالية',
-        'is_paid' => 'مدفوعة ؟',
-        'is_limited' => 'محدودة ؟',
+        'image' => 'صورة',
         'comment' => 'تعليق',
         'reply' => 'الرد',
     ],
@@ -268,13 +193,7 @@ return [
             'regex' => 'يجب أن يحتوي :attribute على حروف فقط.',
             'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.'
         ],
-        'representative_name' => [
-            'regex' => 'يجب أن يحتوي :attribute على حروف فقط.',
-            'min' => 'يجب أن يكون طول :attribute على الأقل 8 أحرف.'
-        ],
-        'representative_mobile' => [
-            'regex' => ':attribute يجب ان يبدا ب 5 ثم يتبع ب 8 ارقام فقط'
-        ],
+
         'password' => [
             'min' => 'يجب أن يكون طول :attribute على الأقل 6 أحرف.'
         ],
@@ -284,95 +203,20 @@ return [
         'new_password' => [
             'min' => 'يجب أن يكون طول :attribute على الأقل 6 أحرف.'
         ],
-        'username' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 20 حرفاً.'
-        ],
         'avatar' => [
             'max' => 'يجب أن لا يتجاوز حجم :attribute :max كيلوبايت.'
         ],
-        'job_name' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 20 حرفاً.'
-        ],
-        'department' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 255 حرفاً.'
-        ],
-        'branch' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 255 حرفاً.'
-        ],
-        'line_manager_name' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 255 حرفاً.'
-        ],
-        'line_manager_job_title' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 3 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 255 حرفاً.'
-        ],
-        'line_manager_email' => [
-            'max' => 'يجب أن لا يتجاوز طول :attribute 255 حرفاً.'
-        ],
-        'code' => [
-            'unique' => 'رمز الشهادة موجود مسبقًا',
-        ],
-        'real_name' => [
-            'min' => 'يجب أن يكون طول :attribute على الأقل 8 أحرف.',
-            'max' => 'يجب أن لا يتجاوز طول :attribute 27 حرفاً.'
-        ],
-        'city_id' => [
-            'exists' => 'القيمة المختارة للمدينة غير موجودة',
-            'integer' => 'يجب أن تكون المدينه رقمًا',
-        ],
+
         'reason' => [
             'min' => 'يجب أن يكون طول :attribute على الأقل 10 أحرف.',
             'max' => 'يجب أن لا يتجاوز طول :attribute 140 حرفاً.'
         ],
-        'link' => [
-            'active_url' => ':attribute لا يُمثّل رابطاً صحيحاً'
-        ],
-        'starting_date' => [
-            'after' => 'يجب على تاريخ بدء الفعالية أن يكون تاريخًا لاحقًا لتاريخ اليوم',
-        ],
-        'ending_date' => [
-            'after_or_equal' => 'يجب أن يكون تاريخ انتهاء الفعالية تاريخاً لاحقاً أو مطابقاً لتاريخ بدء الفعالية',
-        ],
-        'image' => [
-            'required' => 'صورة الفعالية مطلوبة',
-            'file' => 'صورة الفعالية يجب أن تكون صورة',
-            'max' => 'يجب أن لا يتجاوز حجم الصورة 3 ميجا بايت'
-        ],
-        'number_of_hours' => [
-            'integer' => 'يجب أن يكون عدد الساعات رقمًا',
-        ],
-        'enrollment_type' => [
-            'in' => 'القيمة المختارة لنوع التسجيل غير موجودة'
-        ],
-        'is_paid' => [
-            'in' => 'القيمة المختارة للرسوم غير موجودة'
-        ],
-        'fees' => [
-            'numeric' => 'يجب أن يكون رسوم المشاركة رقمًا',
-        ],
-        'maximum_number_of_participants' => [
-            'integer' => 'يجب أن يكون العدد الأقصى للمشاركين رقمًا',
-        ],
-        'event_type_id' => [
-            'exists' => 'القيمة المختارة لنوع الفعالية غير موجودة',
-            'integer' => 'يجب أن تكون نوع الفعالية رقمًا',
-        ],
-        'event_field_id' => [
-            'exists' => 'القيمة المختارة للمجال غير موجودة',
-            'integer' => 'يجب أن يكون المجال رقمًا',
-        ],
-        'images' => [
-            'max' => 'لا يمكن رفع أكثر من 10 صور'
-        ],
         'images.*' => [
             'required' => 'صورة الفعالية مطلوبة',
-            'max' => 'يجب أن لا يتجاوز حجم الصورة 3 ميجا بايت',
             'mimes' => 'يجب أن تكون صورة الفعالية ملفًا من نوع :values.'
         ],
+        'email' => [
+            'exists' => 'لم يتم العثور على الحساب'
+        ]
     ]
 ];

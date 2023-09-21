@@ -1,19 +1,20 @@
 <?php
 
-namespace Domains\Authors\Actions\Sessions;
+namespace Domains\Users\Actions\Sessions;
 
 use App\Exceptions\CustomException\LogicException;
-use App\Http\Requests\Authors\Sessions\ActivateAccountRequest;
-use App\Models\Author;
+use App\Http\Requests\Users\Sessions\ActivateAccountRequest;
 use App\Models\OtpActivation;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 
 class ActivateAccountAction
+
 {
     public function __invoke(ActivateAccountRequest $request)
     {
         $otpActivation = OtpActivation::query()
-        ->where([['type', '=', Author::class], ['email', '=', $request->email],['otp','=',$request->otp]])->first();
+        ->where([['type', '=', User::class], ['email', '=', $request->email],['otp','=',$request->otp]])->first();
 
         if (!$otpActivation) {
             throw new LogicException(__('auth.invalid_token'));
@@ -24,12 +25,12 @@ class ActivateAccountAction
             throw new LogicException(__('auth.expired_otp'));
         }
 
-        $author = Author::query()->whereEmail($request->email)->firstOrFail();
+        $user = User::query()->whereEmail($request->email)->firstOrFail();
 
-        $author->setAsActivateAccount();
+        $user->setAsActivateAccount();
 
         $otpActivation->delete();
 
-        return $author->email;
+        return $user->email;
     }
 }

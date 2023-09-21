@@ -1,11 +1,11 @@
 <?php
 
-namespace Domains\Admins\DataTransferToObject;
+namespace Domains\Users\DataTransferToObject;
 
 use Domains\Supports\Enums\GenderEnum;
 use Spatie\LaravelData\Data;
 
-final class AuthorData extends Data
+final class UserData extends Data
 {
 
     public function __construct(
@@ -13,24 +13,20 @@ final class AuthorData extends Data
         public ?string $last_name,
         public ?string $email,
         public ?string $password,
-        public ?bool $is_active,
         public ?int $gender,
         public ?string $local,
-        public ?string $email_verified_at,
     ) {
     }
 
-    public static function fromRequest($request): AuthorData
+    public static function fromRequest($request): UserData
     {
         return new self(
             $request->post('first_name'),
             $request->post('last_name'),
             $request->post('email'),
             $request->post('password'),
-            $request->post('is_active') ? $request->boolean('is_active') : null,
             self::HandleGender($request->post('gender')),
             $request->post('local'),
-            now()
         );
     }
 

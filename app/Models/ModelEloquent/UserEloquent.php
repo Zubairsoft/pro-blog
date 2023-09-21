@@ -2,13 +2,27 @@
 
 namespace App\Models\ModelEloquent;
 
-use App\Models\OtpActivation;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait UserEloquent
 {
-    public function otpActivation(): MorphOne
+    public function posts(): MorphMany
     {
-        return $this->morphOne(OtpActivation::class, 'activatable');
+        return $this->morphMany(Post::class, 'authorable');
+    }
+
+    public function bookmarks(): MorphMany
+    {
+        return $this->morphMany(Bookmark::class, 'userable');
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'userable');
+    }
+
+    public function replyComments(): MorphMany
+    {
+        return $this->morphMany(ReplyComment::class, 'user');
     }
 }
