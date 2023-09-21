@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Models\ModelAttributes\UserAttributes;
+use App\Models\ModelEloquent\UserEloquent;
 use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
 use Domains\Supports\Traits\HasMediaFromRequest;
@@ -25,6 +27,8 @@ class User extends Authenticatable
         HasMediaFromRequest,
         ActivateAccount,
         InteractsWithMedia,
+        UserEloquent,
+        UserAttributes,
         HasRoles;
 
     /**
