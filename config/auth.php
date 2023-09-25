@@ -62,7 +62,7 @@ return [
         ],
         'author-api' => [
             'driver' => 'sanctum',
-            'provider' => 'users',
+            'provider' => 'authors',
         ],
     ],
 

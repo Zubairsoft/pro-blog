@@ -2,8 +2,10 @@
 
 namespace App\Models\ModelEloquent;
 
+use App\Models\Comment;
 use App\Models\OtpActivation;
 use App\Models\Post;
+use App\Models\ReplyComment;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -16,13 +18,23 @@ trait AdminEloquent
         return $this->morphOne(OtpActivation::class, 'activatable');
     }
 
-    public function posts():MorphMany
+    public function posts(): MorphMany
     {
-        return $this->morphMany(Post::class,'authorable');
+        return $this->morphMany(Post::class, 'authorable');
     }
 
     public function tags(): HasMany
     {
         return $this->hasMany(Tag::class);
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'userable');
+    }
+
+    public function replyComments(): MorphMany
+    {
+        return $this->morphMany(ReplyComment::class, 'user');
     }
 }

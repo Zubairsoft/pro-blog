@@ -22,6 +22,9 @@ class PostResource extends JsonResource
             'description_en' => $this->description_en,
             'is_publish_ar' => $this->is_publish_ar,
             'is_publish_en' => $this->is_publish_en,
+            'tags' => TagResource::collection($this->whenLoaded('tags')),
+            'poster' => $this->poster,
+            'images' => ImageResource::collection($this->images),
             'status' => $this->status
         ];
     }

@@ -6,13 +6,12 @@ use App\Http\Requests\Authors\Sessions\SendVerificationCodeRequest;
 use App\Models\Author;
 use App\Models\OtpActivation;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class SendVerificationCodeAction
 {
     public function __invoke(SendVerificationCodeRequest $request)
     {
-        $otpActivation = OtpActivation::query()->whereEmail($request->email)->first();
+        $otpActivation = OtpActivation::query()->where([['email','=',$request->email],['type',Author::class]])->first();
 
         if ($otpActivation) {
 

@@ -29,10 +29,12 @@ class RegisterAuthorRequest extends FormRequest
         return [
             'first_name' => [
                 'required',
+                'min:2',
                 'max:50',
             ],
             'last_name' => [
                 'required',
+                'min:2',
                 'max:50',
             ],
             'email' => [
@@ -48,7 +50,7 @@ class RegisterAuthorRequest extends FormRequest
                 Password::min(9)->numbers()->letters()->symbols(),
                 'confirmed',
             ],
-            'gender'=>[
+            'gender' => [
                 'required',
                 Rule::in(GenderEnum::getValues())
             ],

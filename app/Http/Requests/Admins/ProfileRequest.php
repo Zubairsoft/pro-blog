@@ -46,7 +46,7 @@ class ProfileRequest extends FormRequest
                 Rule::in(LocalEnum::getValues()),
             ],
             'avatar' => [
-                File::types(['png', 'jpeg'])->size(2 * 1024)
+                File::types(['png', 'jpeg'])->max(2 * 1024)
             ]
         ];
     }

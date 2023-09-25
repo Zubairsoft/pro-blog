@@ -17,9 +17,7 @@ final class UpdateProfileAction
 
         $admin->update($attributes);
 
-        if ($request->avatar?->isFile()) {
-            $admin->addMediaFromRequest('avatar')->toMediaCollection('avatar');
-        }
+        $admin->AddImageFromRequestIfExists($request, 'avatar', 'avatar');
 
         return $admin;
     }

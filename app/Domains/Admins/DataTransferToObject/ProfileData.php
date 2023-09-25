@@ -13,7 +13,7 @@ final class ProfileData extends Data
         public ?string $email,
         public ?string $password,
         public ?int $gender,
-        public ?bool $local
+        public ?string $local
     ) {
     }
 
