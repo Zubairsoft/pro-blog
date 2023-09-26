@@ -33,7 +33,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::before(function () {
-            $user = Auth::user();
+
+            $user = getAuthenticatedUser();
 
             if ($user->hasRole(RoleEnum::SUPER_ADMIN)) {
                 return true;
