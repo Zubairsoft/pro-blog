@@ -25,7 +25,7 @@ class ResetPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => [
+        'email' => [
                 'required',
                 'email',
                 Rule::exists('users', 'email')
