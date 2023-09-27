@@ -4,20 +4,16 @@ namespace App\Models\ModelAttributes;
 
 use Domains\Supports\Traits\CommonAttributes\AvatarAttribute;
 use Domains\Supports\Traits\CommonAttributes\GenderTranslateAttribute;
+use Domains\Supports\Traits\CommonAttributes\PasswordAttribute;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait AdminAttributes
 {
-    use  GenderTranslateAttribute,AvatarAttribute;
+    use  GenderTranslateAttribute, AvatarAttribute, PasswordAttribute;
 
-    protected function password(): Attribute
-    {
-        return new Attribute(set: fn ($value) => bcrypt($value));
-    }
-
+ 
     public function getFilamentAvatarUrl(): ?string
     {
         return $this->avatar;
     }
-
 }
