@@ -24,7 +24,15 @@ function generateOtp(): int
 
 function isAuthenticated(): bool
 {
-    return Auth::guard(config('auth.admin-api-guard'))->check() or Auth::guard(config('auth.author-api-guard'))->check() or Auth::guard(config('auth.user-api-guard'))->check();
+    $guards = config('auth.guards');
+
+    foreach ($guards as $guard => $value) {
+        if (Auth::guard($guard)->check()) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function getAuthenticatedUser(): User | null
@@ -34,6 +42,19 @@ function getAuthenticatedUser(): User | null
     foreach ($guards as $guard => $value) {
         if (Auth::guard($guard)->check()) {
             return Auth::guard($guard)->user();
+        }
+    }
+
+    return null;
+}
+
+function getAuthenticatedGuard()
+{
+    $guards = config('auth.guards');
+
+    foreach ($guards as $guard => $value) {
+        if (Auth::guard($guard)->check()) {
+            return $guard;
         }
     }
 
