@@ -68,7 +68,7 @@ class RouteServiceProvider extends ServiceProvider
     private function routeSupportMap()
     {
         Route::middleware('api')->name('supports.')
-            ->prefix('api/v1/supports/')
+            ->prefix('api/v1/support/')
             ->group(base_path('routes/support.php'));
     }
 }

@@ -4,7 +4,7 @@ namespace Domains\Users\Actions\Sessions;
 
 use App\Http\Requests\Users\Sessions\RegisterUserRequest;
 use App\Models\User;
-use Domains\Admins\DataTransferToObject\UserData;
+use Domains\Users\DataTransferToObject\UserData;
 use Domains\Supports\Enums\RoleEnum;
 
 final class RegisterUserAction

@@ -52,7 +52,7 @@ class RegisterUserRequest extends FormRequest
             ],
             'gender' => [
                 'required',
-                Rule::in(GenderEnum::getValues())
+                Rule::in(GenderEnum::getKeys())
             ],
             'local' => [
                 Rule::in(LocalEnum::getValues())

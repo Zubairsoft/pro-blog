@@ -18,7 +18,7 @@ final class LoginUserAction
 
         $user = Auth::user();
 
-        if ((new VerifiedEmailSpecification)->isAllowed($user)) {
+        if (!(new VerifiedEmailSpecification)->isAllowed($user)) {
             resendVerificationCode($user);
             throw new LogicException(__('auth.verify_email'),422);
         }

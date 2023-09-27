@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1\Users\Sessions;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Sessions\ActivateAccountRequest;
 use App\Http\Requests\Users\Sessions\ForgetPasswordRequest;
+use App\Http\Requests\Users\Sessions\LoginUserRequest;
 use App\Http\Requests\Users\Sessions\RegisterUserRequest;
 use App\Http\Requests\Users\Sessions\ResendVerificationCodeRequest;
 use App\Http\Requests\Users\Sessions\ResetPasswordRequest;
@@ -40,7 +41,7 @@ class SessionController extends Controller
      *
      * @return JsonResponse
      */
-    public function login(LoginUserAction $request): JsonResponse
+    public function login(LoginUserRequest $request): JsonResponse
     {
         $user = (new LoginUserAction)($request);
 
@@ -91,7 +92,7 @@ class SessionController extends Controller
     }
 
     /**
-     * Handle the incoming request for reset password 
+     * Handle the incoming request for reset password
      *
      * @param ResetPasswordRequest $request
      *

@@ -15,7 +15,7 @@ class ForgetPasswordAction
 {
     public function __invoke(ForgetPasswordRequest $request)
     {
-        $restPassword = ResetPassword::query()->where([['email', '=', $request->email], ['type',User::class]])->first();
+        $restPassword = ResetPassword::query()->where([['email', '=', $request->email], ['type',UserEnum::USER]])->first();
 
         if ($restPassword) {
             if (!Carbon::parse($restPassword->created_at)->addMinutes(3)->isPast()) {

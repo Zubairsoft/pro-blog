@@ -12,12 +12,12 @@ function sendSuccessResponse($message = 'successful', $data = null, $status_code
 }
 
 
-function sendFailedResponse($message = 'failed', $data = null, $status_code = 404)
+function sendFailedResponse($message = 'failed', $errors = null, $status_code = 404)
 {
     $response = [
         'status' => 'failed',
         'message' => $message,
-        'errors' => $data
+        'data' => $errors
     ];
 
     return response()->json($response, $status_code);
