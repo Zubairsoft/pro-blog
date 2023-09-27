@@ -69,12 +69,16 @@ function  resendVerificationCode(object $user)
 
     $otpActivation = OtpActivation::query()->where([['email', '=', $email], ['type', '=', $type]])->first();
 
-    if ($otpActivation) {
-        if (Carbon::parse($otpActivation->created_at)->addMinutes(5)->isPast()) {
-            $otpActivation->delete();
-            OtpActivation::generateOtpActivation($email, $type);
-        }
-    }
+    switch (!empty($otpActivation)) {
+        case true:
+            if (Carbon::parse($otpActivation->created_at)->addMinutes(3)->isPast()) {
+                $otpActivation->delete();
+                OtpActivation::generateOtpActivation($email, $type);
+            }
+            break;
 
-    OtpActivation::generateOtpActivation($email, $type);
+        default:
+            OtpActivation::generateOtpActivation($email, $type);
+            break;
+    }
 }

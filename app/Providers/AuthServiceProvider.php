@@ -7,9 +7,11 @@ use Illuminate\Support\Facades\Gate;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\ReplyComment;
+use App\Models\Tag;
 use App\Policies\CommentPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\ReplyCommentPolicy;
+use App\Policies\TagPolicy;
 use Domains\Supports\Enums\RoleEnum;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
+        Tag::class => TagPolicy::class,
         Post::class => PostPolicy::class,
         Comment::class => CommentPolicy::class,
         ReplyComment::class => ReplyCommentPolicy::class

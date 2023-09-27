@@ -6,6 +6,7 @@ use App\Exceptions\CustomException\LogicException;
 use App\Http\Requests\Users\Sessions\ResetPasswordRequest;
 use App\Models\ResetPassword;
 use App\Models\User;
+use Domains\Supports\Enums\UserEnum;
 use Illuminate\Support\Carbon;
 
 
@@ -13,7 +14,7 @@ class ResetPasswordAction
 {
     public function __invoke(ResetPasswordRequest $request)
     {
-        $restPassword = ResetPassword::query()->where([['email','=',$request->email],['token','=',$request->token],['type','=',User::class]])->first();
+        $restPassword = ResetPassword::query()->where([['email','=',$request->email],['token','=',$request->token],['type','=',UserEnum::USER]])->first();
 
 
         if (!$restPassword) {

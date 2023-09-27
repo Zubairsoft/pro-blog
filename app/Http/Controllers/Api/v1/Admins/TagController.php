@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admins\TagRequest;
+use App\Http\Resources\Admins\TagResource;
 use Domains\Admins\Actions\Tags\DestroyTagAction;
 use Domains\Admins\Actions\Tags\IndexTagAction;
 use Domains\Admins\Actions\Tags\ShowTagAction;
@@ -26,21 +27,21 @@ class TagController extends Controller
 
         $tag = (new StoreTagAction())($request);
 
-        return sendSuccessResponse(__('messages.create_data'), $tag);
+        return sendSuccessResponse(__('messages.create_data'), TagResource::make($tag));
     }
 
     public function update(TagRequest $request , string $id)
     {
         $tag = (new UpdateTagAction())($request ,$id);
 
-        return sendSuccessResponse(__('messages.update_data'), $tag);
+        return sendSuccessResponse(__('messages.update_data'), TagResource::make($tag));
     }
 
     public function show(string $id)
     {
         $tag = (new ShowTagAction)($id);
 
-        return sendSuccessResponse(__('messages.get_data'), $tag);
+        return sendSuccessResponse(__('messages.get_data'), TagResource::make($tag));
     }
 
     public function destroy(TagRequest $request)

@@ -15,7 +15,7 @@ final class ClearPostImagesAction
 
         $this->authorize('clearImage', $post);
 
-        $images = $post->getMedia('cv')->WhereIn('id', $request->ids);
+        $images = $post->getMedia('post-images')->WhereIn('id', $request->ids);
 
         foreach ($images as $image) {
             $image->delete();
