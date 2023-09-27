@@ -9,7 +9,7 @@ class ShowTagAction
     public function __invoke(string $id)
     {
         $tag = Tag::query()->findOrFail($id);
-        
-        return $tag;
+
+        return $tag->load('admin');
     }
 }

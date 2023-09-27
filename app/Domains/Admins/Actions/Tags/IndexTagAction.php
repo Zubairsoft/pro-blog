@@ -19,11 +19,11 @@ class IndexTagAction
 
         $searchText = $request->input('searchText');
 
-        $tags = Tag::query()->when($searchText, fn (Builder $query) =>
+        $tags = Tag::query()->with('admin')->when($searchText, fn (Builder $query) =>
         $query->search(['name_ar', 'name_en'], $searchText))
             ->orderBy($orderBy, $sortBy)
             ->paginate($perPage);
 
-        return $tags;
+        return TagResource::collection($tags)->appends($request->query());
     }
 }
