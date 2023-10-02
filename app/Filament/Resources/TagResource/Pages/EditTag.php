@@ -1,25 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\AdminResource\Pages;
+namespace App\Filament\Resources\TagResource\Pages;
 
-use App\Filament\Resources\AdminResource;
 use App\Filament\Resources\Supports\RedirectToThePreviousPage;
+use App\Filament\Resources\TagResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
-use Illuminate\Database\Eloquent\Model;
 
-class EditAdmin extends EditRecord
+class EditTag extends EditRecord
 {
     use RedirectToThePreviousPage;
 
-    protected static string $resource = AdminResource::class;
-
-    protected function handleRecordUpdate(Model $admin, array $data): Model
-    {
-        $admin->update($data);
-        
-        return $admin;
-    }
+    protected static string $resource = TagResource::class;
 
     protected function getSavedNotificationTitle(): ?string
     {
