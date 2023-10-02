@@ -13,6 +13,7 @@ class Tag extends BaseModel
     use HasSearch;
 
     protected $fillable = [
+        'admin_id',
         'name_ar',
         'name_en',
         'is_active'

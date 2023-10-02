@@ -2,15 +2,12 @@
 
 namespace App\Models\ModelAttributes;
 
+use Domains\Supports\Traits\CommonAttributes\StatusAttribute;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait TagAttributes
 {
-
-    protected function status(): Attribute
-    {
-        return new Attribute(get: fn () => $this->is_active ? __('keywords.active') : __('keywords.dis_active'));
-    }
+   use StatusAttribute;
 
     protected function name(): Attribute
     {
