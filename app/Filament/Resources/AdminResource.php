@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AdminResource\Pages;
 use App\Filament\Resources\AdminResource\RelationManagers;
 use App\Models\Admin;
+use Domains\Supports\Enums\GenderEnum;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -19,23 +21,37 @@ class AdminResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?int $navigationSort = 1;
+
+    const MALE = GenderEnum::MALE;
+
+    const FEMALE = GenderEnum::FEMALE;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')->label(__('validation.attributes.name'))
                     ->required()->minLength(2)->maxLength(255),
                 Forms\Components\TextInput::make('email')
-                    ->label('Email address')
-                    ->required()->email()->maxLength(100),
-                Forms\Components\Select::make('local')
+                    ->label(__('validation.attributes.name'))
+                    ->required()->email()->maxLength(255),
+                Forms\Components\Select::make('gender')->label(__('validation.attributes.gender'))
                     ->options([
-                        'Arabic' => 'ar',
-                        'English' => 'en',
+                        self::MALE => GenderEnum::getDescription(self::MALE),
+                        self::FEMALE => GenderEnum::getDescription(self::FEMALE)
                     ])->required(),
-                Forms\Components\TextInput::make('password')
-                    ->required()->minLength(2)->maxLength(255)->password()->confirmed(),
-                //Forms\Components\Toggle::make('is_active'),
+                Forms\Components\Select::make('local')->label(__('validation.attributes.local'))
+                    ->options([
+                        'ar' => __('keywords.ar'),
+                        'en' => __('keywords.en')
+                    ])->required(),
+                SpatieMediaLibraryFileUpload::make('avatar')->maxFiles(2 * 1024)
+                    ->collection('avatar'),
+                Forms\Components\TextInput::make('password')->label(__('validation.attributes.password'))
+                    ->required()->minLength(8)->maxLength(255)->password(),
+
+                Forms\Components\Toggle::make('is_active')->label(__('validation.attributes.status')),
             ]);
     }
 
@@ -43,15 +59,28 @@ class AdminResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\TextColumn::make('local'),
+                Tables\Columns\TextColumn::make('name')->label(__('validation.attributes.name'))->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('email')->label(__('validation.attributes.email'))->searchable(),
+                Tables\Columns\TextColumn::make('gender_translate')->label(__('validation.attributes.gender')),
+                Tables\Columns\TextColumn::make('local')->label(__('validation.attributes.local')),
+                Tables\Columns\IconColumn::make('is_active')->label(__('validation.attributes.status'))
+                    ->boolean(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('is_active')
+                    ->options([
+                        true => __('keywords.active'),
+                        false => __('keywords.dis_active'),
+                    ]),
+                Tables\Filters\SelectFilter::make('gender')
+                    ->options([
+                        self::MALE => GenderEnum::getDescription(self::MALE),
+                        self::FEMALE => GenderEnum::getDescription(self::FEMALE)
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -74,5 +103,26 @@ class AdminResource extends Resource
             'create' => Pages\CreateAdmin::route('/create'),
             'edit' => Pages\EditAdmin::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationIcon(): ?string
+    {
+        return 'heroicon-o-user-group';
+    }
+
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('resources.users');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('resources.admins');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('resources.admins');
     }
 }
