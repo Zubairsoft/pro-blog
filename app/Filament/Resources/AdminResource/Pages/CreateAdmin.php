@@ -21,11 +21,6 @@ class CreateAdmin extends CreateRecord
 
         $admin->assignRole(RoleEnum::ADMIN);
 
-        if (is_file($data['avatar'])) {
-            
-            $admin->addMedia($data['avatar'])->toMediaCollection('avatar');
-        }
-
         return $admin;
     }
 }
