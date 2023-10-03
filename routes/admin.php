@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\v1\Admins\TagController;
 use App\Http\Controllers\Api\v1\Admins\BookmarkController;
 use App\Http\Controllers\Api\v1\Admins\CommentController;
 use App\Http\Controllers\Api\v1\Admins\ReplyCommentController;
+use App\Http\Controllers\Api\v1\Admins\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('test', function () {
@@ -103,7 +104,7 @@ Route::get('test', function () {
         $stack = [];
 
         for ($i = 0; $i < strlen($p); $i++) {
-            if ($p[$i] == '(' ) {
+            if ($p[$i] == '(') {
                 if (empty($stack)) {
                     $stack[] = $p[$i];
                     continue;
@@ -111,8 +112,6 @@ Route::get('test', function () {
                 if (end($stack) != '(') {
                     $stack[] = $p[$i];
                 }
-                
-                
             } else {
                 if (end($stack) != ')' && !empty($stack)) {
                     $stack[] = $p[$i];
@@ -155,9 +154,9 @@ Route::get('test', function () {
             }
         }
 
-        return count($stack)==0;
+        return count($stack) == 0;
     }
-    
+
     return checkIsValidP("()");
 });
 
@@ -231,5 +230,12 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::post('/', [BookmarkController::class, 'store'])->name('store');
         Route::get('/{id}', [BookmarkController::class, 'show'])->name('show');
         Route::delete('/', [BookmarkController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('reports.')->prefix('reports')->group(function () {
+        Route::get('/', [ReportController::class, 'index'])->name('index');
+        Route::patch('/', [ReportController::class, 'update'])->name('update');
+        Route::get('/{id}', [ReportController::class, 'show'])->name('show');
+        Route::delete('/', [ReportController::class, 'destroy'])->name('destroy');
     });
 });
