@@ -11,6 +11,13 @@ use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
+    /**
+     *Handle the incoming request for fetch posts
+     *
+     * @param IndexPostRequest $request
+     *
+     * @return JsonResponse
+     */
     public function index(IndexPostRequest $request): JsonResponse
     {
         $posts = (new IndexPostAction)($request);
@@ -18,6 +25,13 @@ class PostController extends Controller
         return sendSuccessResponse(__('messages.get_data'), $posts);
     }
 
+    /**
+     * Handle the incoming request for show post
+     *
+     * @param string $id
+     *
+     * @return JsonResponse
+     */
     public function show(string $id): JsonResponse
     {
         $post = (new ShowPostAction)($id);
