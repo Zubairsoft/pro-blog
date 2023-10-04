@@ -6,6 +6,7 @@ use App\Models\ModelAttributes\PostAttributes;
 use App\Models\ModelEloquent\PostEloquent;
 use Domains\Supports\Traits\HasMediaFromRequest;
 use Domains\Supports\Traits\HasSearch;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -43,5 +44,15 @@ class Post extends BaseModel implements HasMedia
 
         $this
             ->addMediaCollection('post-images');
+    }
+
+    public function scopeActive(Builder $query)
+    {
+        return $query->where('status', true);
+    }
+
+    public function scopePublish(Builder $query,$locale)
+    {
+        return $query->where('is_publish_'.$locale, true);
     }
 }
