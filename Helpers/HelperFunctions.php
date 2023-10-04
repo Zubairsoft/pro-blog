@@ -48,6 +48,19 @@ function getAuthenticatedUser(): User | null
     return null;
 }
 
+function checkUserIsAuthenticated(): bool
+{
+    $guards = config('auth.guards');
+
+    foreach ($guards as $guard => $value) {
+        if (Auth::guard($guard)->check()) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 function getAuthenticatedGuard()
 {
     $guards = config('auth.guards');
