@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Users\PostController;
 use App\Http\Controllers\Api\v1\Users\Sessions\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,11 @@ Route::name('users.')->prefix('user')->group(function () {
 
         Route::middleware('auth:api')->group(function () {
             Route::post('/logout', [SessionController::class, 'logout'])->name('logout');
-
         });
+    });
+
+    Route::name('posts.')->prefix('posts')->group(function () {
+        Route::get('/', [PostController::class, 'index']);
+        Route::get('/{id}', [PostController::class, 'show']);
     });
 });
