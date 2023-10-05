@@ -14,6 +14,8 @@ class IndexPostAction
     {
         $searchText = $request->input('searchText');
 
+        $user = getAuthenticatedUser();
+
         $local = app()->currentLocale();
 
         $posts = Post::query()
@@ -35,7 +37,16 @@ class IndexPostAction
             )->when(
                 $searchText,
                 fn (Builder $query) => $query->search(['title_ar', 'title_en', 'description_ar', 'description_en'], $searchText)
-            )->active()->publish($local)->paginate(12);
+            )->when(
+                checkUserIsAuthenticated(),
+                fn (Builder $query) =>
+                $query->withExists([
+                    'bookmarks as is_bookmark' => fn ($query) =>
+                    $query->where([['userable_id', '=', $user->id], ['userable_type', '=', get_class($user)]])
+                ])
+
+            )
+            ->active()->publish($local)->paginate(12);
 
         return PostsResource::collection($posts)->appends($request->query())->toArray();
     }
