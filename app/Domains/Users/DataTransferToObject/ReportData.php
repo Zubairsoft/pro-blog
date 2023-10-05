@@ -17,12 +17,12 @@ final class ReportData extends Data
 
     public static function fromRequest($request): ReportData
     {
-        $user=getAuthenticatedUser();
+        $user = getAuthenticatedUser();
+
         return new self(
             $user->id,
             get_class($user),
             $request->post('reason'),
         );
     }
-
 }
