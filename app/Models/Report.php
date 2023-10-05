@@ -14,6 +14,8 @@ class Report extends BaseModel
     use ReportAttributes;
 
     protected $fillable = [
+        'writable_id',
+        'writable_type',
         'reason',
     ];
 
