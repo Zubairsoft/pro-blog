@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\v1\Users;
+namespace App\Http\Controllers\Api\v1\Users\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Posts\IndexPostRequest;
