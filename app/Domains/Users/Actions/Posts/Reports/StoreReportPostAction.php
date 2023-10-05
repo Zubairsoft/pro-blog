@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Users\Actions\Posts;
+namespace Domains\Users\Actions\Posts\Reports;
 
 use App\Exceptions\CustomException\LogicException;
 use App\Http\Requests\Users\Posts\StoreReportPostRequest;
