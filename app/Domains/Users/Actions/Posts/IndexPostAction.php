@@ -27,6 +27,9 @@ class IndexPostAction
                 'comments.userable',
                 'comments.replyComments',
                 'comments.replyComments.user'
+            ])->withCount([
+                'comments as comment_count',
+                'likes as like_count'
             ])
             ->when(
                 $request->has('tags'),
@@ -41,11 +44,13 @@ class IndexPostAction
                 checkUserIsAuthenticated(),
                 fn (Builder $query) =>
                 $query->withExists([
+                    'likes as is_like' => fn ($query) =>
+                    $query->where([['userable_id', '=', $user->id], ['userable_type', '=', get_class($user)]]),
                     'bookmarks as is_bookmark' => fn ($query) =>
                     $query->where([['userable_id', '=', $user->id], ['userable_type', '=', get_class($user)]])
                 ])
-
             )
+
             ->active()->publish($local)->paginate(12);
 
         return PostsResource::collection($posts)->appends($request->query())->toArray();
