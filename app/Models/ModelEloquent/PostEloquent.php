@@ -9,6 +9,7 @@ use App\Models\TagPost;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 trait PostEloquent
@@ -28,8 +29,8 @@ trait PostEloquent
         return $this->hasMany(Comment::class);
     }
 
-    public function reports():HasManyThrough
+    public function reports(): MorphMany
     {
-        return $this->hasManyThrough(Report::class,'reportable');
+        return $this->morphMany(Report::class, 'reportable');
     }
 }
