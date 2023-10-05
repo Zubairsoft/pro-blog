@@ -12,7 +12,7 @@ trait BookmarkEloquent
     {
         return $this->morphTo();
     }
-
+    
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);
