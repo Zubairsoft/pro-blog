@@ -23,6 +23,7 @@ class PostsResource extends JsonResource
             'tags' => $this->tags->pluck('name'),
             'author' => UserResource::make($this->whenLoaded('authorable')),
             'comments' => CommentsResource::collection($this->whenLoaded('comments')),
+            'is_bookmark'=>$this->is_bookmark,
         ];
     }
 }
