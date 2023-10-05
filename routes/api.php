@@ -33,6 +33,8 @@ Route::name('users.')->prefix('user')->group(function () {
     Route::name('posts.')->prefix('posts')->group(function () {
         Route::get('/', [PostController::class, 'index']);
         Route::get('/{id}', [PostController::class, 'show']);
-        Route::store('/{id}/report', StoreReportPostController::class);
+        Route::name('reports.')->middleware('auth:sanctum')->group(function(){
+            Route::post('/{id}/report', StoreReportPostController::class);
+        });
     });
 });
