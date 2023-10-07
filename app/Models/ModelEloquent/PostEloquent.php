@@ -4,6 +4,7 @@ namespace App\Models\ModelEloquent;
 
 use App\Models\Bookmark;
 use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Report;
 use App\Models\Tag;
 use App\Models\TagPost;
@@ -37,5 +38,10 @@ trait PostEloquent
     public function bookmarks(): HasMany
     {
         return $this->hasMany(Bookmark::class);
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
     }
 }

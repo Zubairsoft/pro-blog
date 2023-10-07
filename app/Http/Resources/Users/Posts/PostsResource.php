@@ -20,10 +20,13 @@ class PostsResource extends JsonResource
             'description' => $this->description,
             'poster' => $this->poster,
             'images' => $this->images,
+            'is_bookmark'=>$this->is_bookmark,
+            'is_like'=>$this->is_like,
+            'comment_count'=>$this->comment_count,
+            'like_count'=>$this->like_count,
             'tags' => $this->tags->pluck('name'),
             'author' => UserResource::make($this->whenLoaded('authorable')),
             'comments' => CommentsResource::collection($this->whenLoaded('comments')),
-            'is_bookmark'=>$this->is_bookmark,
         ];
     }
 }
