@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Users\DataTransferToObject;
+namespace Domains\Supports\DataTransferToObject;
 
 use Spatie\LaravelData\Data;
 

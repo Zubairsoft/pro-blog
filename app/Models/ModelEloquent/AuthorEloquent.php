@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\OtpActivation;
 use App\Models\Post;
 use App\Models\ReplyComment;
+use App\Models\Report;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -35,5 +36,15 @@ trait AuthorEloquent
     public function replyComments(): MorphMany
     {
         return $this->morphMany(ReplyComment::class, 'user');
+    }
+
+    public function reports(): MorphMany
+    {
+        return $this->morphMany(Report::class, 'reportable');
+    }
+
+    public function writeReports(): MorphMany
+    {
+        return $this->morphMany(Report::class, 'writable');
     }
 }
