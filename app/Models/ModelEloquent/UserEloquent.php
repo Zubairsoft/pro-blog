@@ -2,15 +2,14 @@
 
 namespace App\Models\ModelEloquent;
 
+use App\Models\Bookmark;
+use App\Models\Comment;
+use App\Models\ReplyComment;
+use App\Models\Report;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait UserEloquent
 {
-    public function posts(): MorphMany
-    {
-        return $this->morphMany(Post::class, 'authorable');
-    }
-
     public function bookmarks(): MorphMany
     {
         return $this->morphMany(Bookmark::class, 'userable');
@@ -24,5 +23,15 @@ trait UserEloquent
     public function replyComments(): MorphMany
     {
         return $this->morphMany(ReplyComment::class, 'user');
+    }
+
+    public function reports(): MorphMany
+    {
+        return $this->morphMany(Report::class, 'reportable');
+    }
+
+    public function writeReports(): MorphMany
+    {
+        return $this->morphMany(Report::class, 'writable');
     }
 }
