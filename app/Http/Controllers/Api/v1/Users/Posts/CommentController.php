@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1\Users\Posts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Posts\CommentRequest;
+use App\Http\Resources\Users\Posts\CommentsResource;
 use Domains\Users\Actions\Posts\Comments\DestroyCommentAction;
 use Domains\Users\Actions\Posts\Comments\StoreCommentAction;
 use Domains\Users\Actions\Posts\Comments\UpdateCommentAction;
@@ -23,7 +24,7 @@ class CommentController extends Controller
     {
         $comment = (new StoreCommentAction)($request, $id);
 
-        return sendSuccessResponse(__('messages.create_data'), $comment);
+        return sendSuccessResponse(__('messages.create_data'), CommentsResource::make($comment));
     }
 
     /**
@@ -39,7 +40,7 @@ class CommentController extends Controller
     {
         $comment = (new UpdateCommentAction)($request, $id, $commentId);
 
-        return sendSuccessResponse(__('messages.update_data'), $comment);
+        return sendSuccessResponse(__('messages.update_data'), CommentsResource::make($comment));
     }
 
     /**
