@@ -15,5 +15,19 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * Handle the incoming request for fetch all users
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function index(Request $request): JsonResponse
+    {
+        $users = (new IndexUserAction)($request);
+
+        return sendSuccessResponse(__('messages.get_data'), $users);
+    }
+
 
 }
