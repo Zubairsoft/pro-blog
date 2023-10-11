@@ -23,5 +23,15 @@ class ProfileController extends Controller
         return sendSuccessResponse(__('messages.get_data'), ProfileResource::make($profile));
     }
 
+    /**
+     *Handle the incoming request for update profile
+     *
+     * @return JsonResponse
+     */
+    public function update(ProfileRequest $request): JsonResponse
+    {
+        $profile = (new UpdateProfileAction)($request);
 
+        return sendSuccessResponse(__('messages.update_data'), ProfileResource::make($profile));
+    }
 }
