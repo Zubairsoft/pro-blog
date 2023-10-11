@@ -47,7 +47,7 @@ class AuthorRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('admins', 'email'),
+                Rule::unique('authors', 'email'),
             ],
             'gender' => [
                 'required',
@@ -84,7 +84,7 @@ class AuthorRequest extends FormRequest
             ],
             'email' => [
                 'email',
-                Rule::unique('admins', 'email'),
+                Rule::unique('authors', 'email'),
             ],
             'gender' => [
                 Rule::in(GenderEnum::getKeys()),
