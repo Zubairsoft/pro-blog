@@ -9,7 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
 
-class AuthorRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     use HttpRequest;
     /**
@@ -47,7 +47,7 @@ class AuthorRequest extends FormRequest
             'email' => [
                 'required',
                 'email',
-                Rule::unique('authors', 'email'),
+                Rule::unique('users', 'email'),
             ],
             'gender' => [
                 'required',
@@ -84,7 +84,7 @@ class AuthorRequest extends FormRequest
             ],
             'email' => [
                 'email',
-                Rule::unique('authors', 'email'),
+                Rule::unique('users', 'email'),
             ],
             'gender' => [
                 Rule::in(GenderEnum::getKeys()),

@@ -5,7 +5,7 @@ namespace Domains\Admins\DataTransferToObject;
 use Domains\Supports\Enums\GenderEnum;
 use Spatie\LaravelData\Data;
 
-final class AuthorData extends Data
+final class UserData extends Data
 {
 
     public function __construct(
@@ -19,7 +19,7 @@ final class AuthorData extends Data
     ) {
     }
 
-    public static function fromRequest($request): AuthorData
+    public static function fromRequest($request): UserData
     {
         return new self(
             $request->post('first_name'),
