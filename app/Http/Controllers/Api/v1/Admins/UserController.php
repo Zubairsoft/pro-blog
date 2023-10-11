@@ -29,5 +29,19 @@ class UserController extends Controller
         return sendSuccessResponse(__('messages.get_data'), $users);
     }
 
+    /**
+     * Handle the incoming request for fetch all users
+     *
+     * @param string $id
+     *
+     * @return JsonResponse
+     */
+    public function show(string $id): JsonResponse
+    {
+        $user = (new ShowUserAction)($id);
 
+        return sendSuccessResponse(__('messages.get_data'), UserResource::make($user));
+    }
+
+ 
 }
