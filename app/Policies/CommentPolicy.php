@@ -13,10 +13,11 @@ class CommentPolicy
      */
     public function update(Author $author, Comment $comment): bool
     {
-        if (Auth::guard('web')->check()) {
-            return  Auth::guard('web')->user()->id === $comment->userable_id;
-        }
-        return $author->id === $comment->userable_id;
+        return match (true) {
+            Auth::guard('web')->check() => Auth::guard('web')->user()->id  === $comment->userable_id,
+            Auth::guard('api')->check() => Auth::guard('api')->user()->id  === $comment->userable_id,
+            default => $author->id === $comment->userable_id
+        };
     }
 
     /**
@@ -24,9 +25,10 @@ class CommentPolicy
      */
     public function destroy(Author $author, Comment $comment): bool
     {
-        if (Auth::guard('web')->check()) {
-            return  Auth::guard('web')->user()->id === $comment->userable_id;
-        }
-        return $author->id === $comment->userable_id;
+        return match (true) {
+            Auth::guard('web')->check() => Auth::guard('web')->user()->id  === $comment->userable_id,
+            Auth::guard('api')->check() => Auth::guard('api')->user()->id  === $comment->userable_id,
+            default => $author->id === $comment->userable_id
+        };
     }
 }
