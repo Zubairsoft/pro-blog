@@ -15,15 +15,15 @@ class SetLocalization
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (isAuthenticated()) {
-            app()->setLocale(getAuthenticatedUser()->local);
+        if ($request->has('local')) {
+
+            app()->setLocale($request->local);
 
             return $next($request);
         }
-        
-        if ($request->has('locale')) {
 
-            app()->setLocale($request->locale);
+        if (isAuthenticated()) {
+            app()->setLocale(getAuthenticatedUser()->local);
         }
 
         return $next($request);
