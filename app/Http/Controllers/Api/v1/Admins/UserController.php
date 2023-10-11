@@ -72,4 +72,18 @@ class UserController extends Controller
         return sendSuccessResponse(__('messages.update_data'), UserResource::make($user));
     }
 
+      /**
+     * Handle the incoming request for delete users
+     *
+     * @param UserRequest $request
+     *
+     * @return JsonResponse
+     */
+    public function destroy(UserRequest $request): JsonResponse
+    {
+        (new DestroyUserAction)($request);
+
+        return sendSuccessResponse(__('messages.delete_data'));
+    }
+
 }
