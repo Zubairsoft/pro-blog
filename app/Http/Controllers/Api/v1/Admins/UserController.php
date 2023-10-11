@@ -44,7 +44,7 @@ class UserController extends Controller
     }
 
     /**
-     * Handle the incoming request for store user
+     * Handle the incoming request for store
      *
      * @param UserRequest $request
      *
@@ -55,6 +55,21 @@ class UserController extends Controller
         $user = (new StoreUserAction)($request);
 
         return sendSuccessResponse(__('messages.create_data'), UserResource::make($user));
+    }
+
+    /**
+     * Handle the incoming request for update user
+     *
+     * @param UserRequest $request
+     * @param string $id
+     *
+     * @return JsonResponse
+     */
+    public function update(UserRequest $request, string $id): JsonResponse
+    {
+        $user = (new UpdateUserAction)($request, $id);
+
+        return sendSuccessResponse(__('messages.update_data'), UserResource::make($user));
     }
 
 }
