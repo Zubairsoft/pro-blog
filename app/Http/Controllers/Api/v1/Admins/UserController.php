@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     /**
-     * Handle the incoming request for show all users
+     * Handle the incoming request for show user
      *
      * @param string $id
      *
