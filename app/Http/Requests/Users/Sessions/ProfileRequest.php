@@ -26,6 +26,32 @@ class ProfileRequest extends FormRequest
      */
     public function rules(): array
     {
-    return [];
-}
+        return [
+            'first_name' => [
+                'min:2',
+                'max:50',
+            ],
+            'last_name' => [
+                'min:2',
+                'max:50',
+            ],
+            'email' => [
+                'email',
+                Rule::unique('authors'),
+            ],
+            'avatar' => [
+                File::types(['png', 'jpg', 'jpeg'])->max(2 * 1024)
+            ],
+            'password' => [
+                Password::min(9)->numbers()->letters()->symbols(),
+                'confirmed',
+            ],
+            'gender' => [
+                Rule::in(GenderEnum::getKeys())
+            ],
+            'local' => [
+                Rule::in(LocalEnum::getValues())
+            ]
+        ];
+    }
 }
