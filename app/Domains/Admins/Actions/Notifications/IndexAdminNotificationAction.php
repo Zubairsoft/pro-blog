@@ -10,6 +10,6 @@ final class IndexAdminNotificationAction
     {
         $admin = Auth::guard(config('auth.admin-api-guard'))->user();
 
-        return $admin->load('notifications');
+        return $admin->load('notifications')->loadCount('unreadNotifications');
     }
 }

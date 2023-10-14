@@ -10,6 +10,6 @@ final class IndexAuthorNotificationAction
     {
         $author = Auth::guard(config('auth.author-api'))->user();
 
-        return $author->load('notifications');
+        return $author->load('notifications')->loadCount('unreadNotifications');
     }
 }
