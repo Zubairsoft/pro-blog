@@ -41,8 +41,8 @@ class AuthorRegistrationNotification extends Notification implements ShouldQueue
             'type' => UserEnum::getKey(UserEnum::AUTHOR),
             'title_ar' => __('notifications.register_author.title', [], 'ar'),
             'title_en' => __('notifications.register_author.title', [], 'en'),
-            'body_ar' => __('notifications.register_author.title', ['name' => $this->author->name], 'ar'),
-            'body_en' => __('notifications.register_author.title', ['name' => $this->author->name], 'en'),
+            'body_ar' => __('notifications.register_author.body', ['name' => $this->author->name], 'ar'),
+            'body_en' => __('notifications.register_author.body', ['name' => $this->author->name], 'en'),
             'id' => $this->author->id,
         ];
     }
