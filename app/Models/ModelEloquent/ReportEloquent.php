@@ -2,8 +2,6 @@
 
 namespace App\Models\ModelEloquent;
 
-use App\Models\Post;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 trait ReportEloquent

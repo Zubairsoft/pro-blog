@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Like extends BaseModel
 {
     use LikeEloquent;
-    use SoftDeletes;
 
     protected $fillable = [
         'userable_id',

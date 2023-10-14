@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\v1\Authors\BookmarkController;
 use App\Http\Controllers\Api\v1\Authors\CommentController;
+use App\Http\Controllers\Api\v1\Authors\NotificationController;
 use App\Http\Controllers\Api\v1\Authors\PostController;
 use App\Http\Controllers\Api\v1\Authors\ReplyCommentController;
 use App\Http\Controllers\Api\v1\Authors\Sessions\ProfileController;
@@ -52,5 +53,9 @@ Route::middleware('auth:author-api')->group(function () {
         Route::post('/', [BookmarkController::class, 'store'])->name('store');
         Route::get('/{id}', [BookmarkController::class, 'show'])->name('show');
         Route::delete('/', [BookmarkController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('notifications.')->prefix('notifications')->group(function(){
+        Route::get('/',[NotificationController::class,'index'])->name('index');
     });
 });

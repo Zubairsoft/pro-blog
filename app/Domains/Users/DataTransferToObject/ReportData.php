@@ -2,7 +2,6 @@
 
 namespace Domains\Users\DataTransferToObject;
 
-use Domains\Supports\Enums\GenderEnum;
 use Spatie\LaravelData\Data;
 
 final class ReportData extends Data

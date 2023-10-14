@@ -8,8 +8,10 @@ use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use App\Http\Controllers\Api\v1\Admins\BookmarkController;
 use App\Http\Controllers\Api\v1\Admins\CommentController;
+use App\Http\Controllers\Api\v1\Admins\NotificationController;
 use App\Http\Controllers\Api\v1\Admins\ReplyCommentController;
 use App\Http\Controllers\Api\v1\Admins\ReportController;
+use App\Http\Controllers\Api\v1\Admins\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('test', function () {
@@ -193,6 +195,14 @@ Route::middleware('auth:admin-api')->group(function () {
             Route::patch('/{id}', [AuthorController::class, 'update'])->name('update');
             Route::delete('/', [AuthorController::class, 'destroy'])->name('destroy');
         });
+
+        Route::name('users.')->prefix('users')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('index');
+            Route::post('/', [UserController::class, 'store'])->name('store');
+            Route::get('/{id}', [UserController::class, 'show'])->name('show');
+            Route::patch('/{id}', [UserController::class, 'update'])->name('update');
+            Route::delete('/', [UserController::class, 'destroy'])->name('destroy');
+        });
     });
     Route::name('tags')->prefix('tags')->group(function () {
         Route::get('/', [TagController::class, 'index'])->name('index');
@@ -237,5 +247,9 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::patch('/', [ReportController::class, 'update'])->name('update');
         Route::get('/{id}', [ReportController::class, 'show'])->name('show');
         Route::delete('/', [ReportController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('notifications.')->prefix('notifications')->group(function(){
+        Route::get('/',[NotificationController::class,'index'])->name('index');
     });
 });

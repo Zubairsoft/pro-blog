@@ -8,6 +8,7 @@ use App\Models\ModelAttributes\UserAttributes;
 use App\Models\ModelEloquent\UserEloquent;
 use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
+use Domains\Supports\Traits\CommonScopes\ActiveScope;
 use Domains\Supports\Traits\HasMediaFromRequest;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -15,10 +16,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens,
         HasFactory,
@@ -29,6 +31,7 @@ class User extends Authenticatable
         InteractsWithMedia,
         UserEloquent,
         UserAttributes,
+        ActiveScope,
         HasRoles;
 
     /**
@@ -72,10 +75,5 @@ class User extends Authenticatable
         $this
             ->addMediaCollection('avatar')
             ->singleFile();
-    }
-
-    public function scopeActive(Builder $query): Builder
-    {
-        return $query->where('is_active', true);
     }
 }
