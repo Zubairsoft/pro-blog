@@ -1,82 +1,32 @@
 <?php
 
 return [
-    'resend_verification_code' => [
-        'title' => 'إعادة إرسال كود التفعيل',
-        'body' => 'طلب إعادة إرسال كود التفعيل :name',
+    'register_author' => [
+        'title' => ' تسجيل مؤلف جديد',
+        'body' => 'تم تسجيل مؤلف جديد باسم :name',
     ],
-    'candidate_invitation' => [
-        'notify' => [
-            'title' => 'دعوة ترشيح',
-            'body' => 'لقد تم اختيارك كمرشح لوظيفة :job_title في :company_name',
-        ],
-        'accept' => [
-            'title' => 'قبل المرشح الدعوة',
-            'body' => ':candidate_name قبل دعوة الترشيح لوظيفة :job_name',
-        ],
-        'reject' => [
-            'title' => 'رفض المرشح الدعوة',
-            'body' => ':candidate_name رفض دعوة الترشيح لوظيفة :job_name',
-        ],
+    'new_comment' => [
+        'title' => 'تعليق جديد',
+        'body' => ' تم اضافة تعليق جديد بواسطة :name ',
     ],
-    'employment_form' => [
-        'send' => [
-            'title' => 'طلب توظيف',
-            'body' => ':company_name أرسلت إليك إستمارة التوظيف لوظيفة :job_name',
-        ],
-        'submit' => [
-            'title' => 'طلب توظيف',
-            'body' => 'تم تعبئة إستمارة التوظيف من قبل :candidate_name لوظيفة :job_name',
-        ]
+    'like_post' => [
+        'title' => 'اعجاب جديد بمنشورك',
+        'body' => ':name قام بالاعجاب على منشورك',
     ],
-    'interview' => [
-        'send' => [
-            'title' => 'مقابلة عمل',
-            'body' => 'لديك مقابلة لوظيفة :job_name في تاريخ :date الساعة :time في :company_name',
-        ],
+    'report_post' => [
+        'title' => 'تم الابلاغ على منشور',
+        'body' => 'قام :name باالابلاغ على منشور',
     ],
-    'job_offers' => [
-        'send' => [
-            'title' => 'عرض عمل',
-            'body' => 'لديك عرض وظيفي لوظيفة :job_name'
-        ],
-        'accept' => [
-            'title' => 'قبل المرشح عرض العمل',
-            'body' => ':candidate_name قبل عرض العمل لوظيفة :job_name',
-        ],
-        'reject' => [
-            'title' => 'رفض المرشح عرض العمل',
-            'body' => ':candidate_name رفض عرض العمل لوظيفة :job_name',
-        ],
+    'report_comment' => [
+        'title' => 'تم الابلاغ على تعليق',
+        'body' => 'قام :name باالابلاغ على تعليق',
     ],
-    'follow' => [
-        'send' => [
-            'title' => 'لديك متابع جديد',
-            'body' => 'لقد قام :username بمتابعتك',
-        ],
+    'report_author' => [
+        'title' => 'تم الابلاغ على مؤلف',
+        'body' => 'قام :name باالابلاغ على مؤلف',
     ],
-    'comments' => [
-        'send' => [
-            'title' => 'تعليق جديد',
-            'body' => 'قام :username بإضافة تعليق على منشورك',
-        ]
+    'report_user' => [
+        'title' => 'تم الابلاغ على مستخدم',
+        'body' => 'قام :name باالابلاغ على مستخدم',
     ],
-    'likes' => [
-        'title' => 'إعجاب جديد',
-        'body' => 'لقد قام :username بالإعجاب بمنشورك',
-    ],
-    'enrollment_requests' => [
-        'send' => [
-            'title' => 'طلب اشتراك جديد',
-            'body' => 'لقد قام :username بإرسال طلب الانضمام لفعالية :event_name'
-        ],
-        'accept' => [
-            'title' => 'قبول طلب الإشتراك',
-            'body' => ':company_name قبل طلب الإشتراك لفعالية :event_name'
-        ],
-        'reject' => [
-            'title' => 'رفض طلب الإشتراك',
-            'body' => ':company_name رفض طلب الإشتراك لفعالية :event_name'
-        ]
-    ]
 ];

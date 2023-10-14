@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\OtpActivation;
+use Domains\Supports\Enums\LocalEnum;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -95,3 +96,14 @@ function  resendVerificationCode(object $user)
             break;
     }
 }
+
+function translateNotificationTitle($data)
+{
+    return app()->currentLocale() === LocalEnum::English ? $data['title_en'] : $data['title_ar'];
+}
+
+function translateNotificationBody($data)
+{
+    return app()->currentLocale() === LocalEnum::English ? $data['body_en'] :$data['body_ar'];
+}
+

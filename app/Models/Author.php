@@ -6,9 +6,9 @@ use App\Models\ModelAttributes\AuthorAttributes;
 use App\Models\ModelEloquent\AuthorEloquent;
 use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
+use Domains\Supports\Traits\CommonScopes\ActiveScope;
 use Domains\Supports\Traits\HasMediaFromRequest;
 use Domains\Supports\Traits\HasSearch;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -30,6 +30,7 @@ class Author extends Authenticatable implements HasMedia
         InteractsWithMedia,
         ActivateAccount,
         HasMediaFromRequest,
+        ActiveScope,
         HasSearch;
 
     protected $fillable = [
@@ -60,8 +61,4 @@ class Author extends Authenticatable implements HasMedia
             ->singleFile();
     }
 
-    public function scopeActive(Builder $query): Builder
-    {
-        return $query->where('is_active', true);
-    }
 }

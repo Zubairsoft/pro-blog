@@ -33,6 +33,6 @@ class LikeController extends Controller
     {
         (new DestroyLikeAction)($id);
 
-        return sendSuccessResponse(__('messages.create_data'));
+        return sendSuccessResponse(__('messages.delete_data'));
     }
 }

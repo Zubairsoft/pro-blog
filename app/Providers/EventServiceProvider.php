@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
+use App\Models\Like;
+use App\Models\Report;
+use App\Observers\CommentObserver;
+use App\Observers\LikeObserver;
+use App\Observers\ReportObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +24,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+    ];
+
+    protected $observers = [
+        Report::class => ReportObserver::class,
+        Like::class => LikeObserver::class,
+        Comment::class => CommentObserver::class
     ];
 
     /**

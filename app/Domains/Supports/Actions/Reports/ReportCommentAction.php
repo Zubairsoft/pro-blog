@@ -17,7 +17,7 @@ class ReportCommentAction
 
         if ($comment->userable_id === $attributes['writable_id'] and $comment->userable_type === $attributes['writable_type']) {
 
-            throw new LogicException(__('exceptions.self_user_report'), 422);
+            throw new LogicException(__('exceptions.self_comment_report'), 422);
         }
 
         $comment->reports()->firstOrCreate($attributes);

@@ -14,7 +14,6 @@ use App\Policies\ReplyCommentPolicy;
 use App\Policies\TagPolicy;
 use Domains\Supports\Enums\RoleEnum;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\v1\Admins\Sessions\SessionController;
 use App\Http\Controllers\Api\v1\Admins\TagController;
 use App\Http\Controllers\Api\v1\Admins\BookmarkController;
 use App\Http\Controllers\Api\v1\Admins\CommentController;
+use App\Http\Controllers\Api\v1\Admins\NotificationController;
 use App\Http\Controllers\Api\v1\Admins\ReplyCommentController;
 use App\Http\Controllers\Api\v1\Admins\ReportController;
 use App\Http\Controllers\Api\v1\Admins\UserController;
@@ -246,5 +247,9 @@ Route::middleware('auth:admin-api')->group(function () {
         Route::patch('/', [ReportController::class, 'update'])->name('update');
         Route::get('/{id}', [ReportController::class, 'show'])->name('show');
         Route::delete('/', [ReportController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::name('notifications.')->prefix('notifications')->group(function(){
+        Route::get('/',[NotificationController::class,'index'])->name('index');
     });
 });
