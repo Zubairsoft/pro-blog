@@ -9,8 +9,6 @@ class ResetPassword extends Model
 {
     use HasUuids;
 
-    protected $primaryKey="uuid";
-
     public $timestamps = false;
 
     protected $table = 'password_reset_tokens';
