@@ -4,10 +4,14 @@ namespace App\Providers;
 
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\OtpActivation;
 use App\Models\Report;
+use App\Models\ResetPassword;
 use App\Observers\CommentObserver;
 use App\Observers\LikeObserver;
+use App\Observers\OtpActivationObserver;
 use App\Observers\ReportObserver;
+use App\Observers\ResetPasswordObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -29,7 +33,9 @@ class EventServiceProvider extends ServiceProvider
     protected $observers = [
         Report::class => ReportObserver::class,
         Like::class => LikeObserver::class,
-        Comment::class => CommentObserver::class
+        Comment::class => CommentObserver::class,
+        OtpActivation::class => OtpActivationObserver::class,
+        ResetPassword::class => ResetPasswordObserver::class
     ];
 
     /**
