@@ -8,15 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class ResetPassword extends Model
 {
     use HasUuids;
+
+    protected $primaryKey="uuid";
+
+    public $timestamps = false;
+
     protected $table = 'password_reset_tokens';
 
     protected $fillable = [
         'email',
         'token',
-        'type'
+        'type',
+        'created_at'
     ];
 
-    public $timestamps = false;
 
-    protected $primaryKey="id";
 }
