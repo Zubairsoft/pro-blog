@@ -30,6 +30,7 @@ final class SendRestPasswordAction
         $restPassword = ResetPassword::query()->create($request->validated() + [
             'type' => UserEnum::AUTHOR,
             'token' => Str::random(20),
+            'created_at' => now()
         ]);
 
         return $restPassword->email;

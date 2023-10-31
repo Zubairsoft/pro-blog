@@ -10,7 +10,6 @@ use Domains\Supports\Enums\GenderEnum;
 use Domains\Supports\Traits\ActivateAccount;
 use Domains\Supports\Traits\CommonScopes\ActiveScope;
 use Domains\Supports\Traits\HasMediaFromRequest;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
