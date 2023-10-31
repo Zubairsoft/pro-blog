@@ -1,0 +1,1056 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Admins/IndexAdminAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Authors/IndexAuthorAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Bookmarks/IndexBookmarkAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Comments/IndexCommentAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexOwnPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexOwnPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexOwnPostAction.php
+
+		-
+			message: "#^Calling the helper function 'with\\(\\)' with only one argument simply returns the value itself\\. If you want to chain methods on a construct, use '\\(new ClassName\\(\\)\\)\\-\\>foo\\(\\)' instead$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexOwnPostAction.php
+
+		-
+			message: "#^Cannot call method when\\(\\) on array\\<int, string\\>\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexOwnPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/StorePostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Posts/UpdatePostAction.php
+
+		-
+			message: "#^Method Domains\\\\Admins\\\\Actions\\\\Profiles\\\\ShowProfileAction\\:\\:__invoke\\(\\) should return App\\\\Models\\\\Admin but returns App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Profiles/ShowProfileAction.php
+
+		-
+			message: "#^Method Domains\\\\Admins\\\\Actions\\\\Profiles\\\\UpdateProfileAction\\:\\:__invoke\\(\\) should return App\\\\Models\\\\Admin but returns App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Profiles/UpdateProfileAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Reports/IndexReportAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$admin of method Domains\\\\Admins\\\\Specification\\\\Admin\\\\IsActiveSpecification\\:\\:isAllowed\\(\\) expects App\\\\Models\\\\Admin, App\\\\Models\\\\User\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Sessions/LoginAdminAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$admin of method Domains\\\\Admins\\\\Specification\\\\Admin\\\\IsVerifiedEmailSpecification\\:\\:isAllowed\\(\\) expects App\\\\Models\\\\Admin, App\\\\Models\\\\User\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Sessions/LoginAdminAction.php
+
+		-
+			message: "#^Call to an undefined method Laravel\\\\Sanctum\\\\Contracts\\\\HasAbilities\\:\\:delete\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Sessions/LogoutAdminAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Tags/IndexTagAction.php
+
+		-
+			message: "#^Relation 'admin' is not found in App\\\\Models\\\\Tag model\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Tags/IndexTagAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:tags\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Tags/StoreTagAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:tags\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Tags/UpdateTagAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\>\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Users/IndexUserAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Admins/Actions/Users/IndexUserAction.php
+
+		-
+			message: "#^Parameter \\#4 \\$gender of class Domains\\\\Admins\\\\DataTransferToObject\\\\ProfileData constructor expects int\\|null, array\\|string\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Admins/DataTransferToObject/ProfileData.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Author\\:\\:\\$name\\.$#"
+			count: 2
+			path: app/Domains/Admins/Notifications/AuthorRegistrationNotification.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Bookmarks/IndexBookmarkAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Comments/IndexCommentAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/DestroyPostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/ShowPostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/StorePostAction.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Posts/UpdatePostAction.php
+
+		-
+			message: "#^Method Domains\\\\Authors\\\\Actions\\\\Profiles\\\\ShowProfileAction\\:\\:__invoke\\(\\) should return App\\\\Models\\\\Author but returns App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Profiles/ShowProfileAction.php
+
+		-
+			message: "#^Method Domains\\\\Authors\\\\Actions\\\\Profiles\\\\UpdateProfileAction\\:\\:__invoke\\(\\) should return App\\\\Models\\\\Author but returns App\\\\Models\\\\User\\|null\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Profiles/UpdateProfileAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$author of method Domains\\\\Authors\\\\Specification\\\\IsActiveSpecification\\:\\:isAllowed\\(\\) expects App\\\\Models\\\\Author, App\\\\Models\\\\User\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Sessions/LoginAuthorAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$author of method Domains\\\\Authors\\\\Specification\\\\IsVerifiedEmailSpecification\\:\\:isAllowed\\(\\) expects App\\\\Models\\\\Author, App\\\\Models\\\\User\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Sessions/LoginAuthorAction.php
+
+		-
+			message: "#^Call to an undefined method Laravel\\\\Sanctum\\\\Contracts\\\\HasAbilities\\:\\:delete\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Authors/Actions/Sessions/LogoutAuthorAction.php
+
+		-
+			message: "#^Parameter \\#5 \\$gender of class Domains\\\\Authors\\\\DataTransferToObject\\\\ProfileData constructor expects int\\|null, array\\|string\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Authors/DataTransferToObject/ProfileData.php
+
+		-
+			message: "#^Parameter \\#6 \\$local of class Domains\\\\Authors\\\\DataTransferToObject\\\\ProfileData constructor expects bool\\|null, array\\|string\\|null given\\.$#"
+			count: 1
+			path: app/Domains/Authors/DataTransferToObject/ProfileData.php
+
+		-
+			message: "#^Parameter \\#1 \\$writable_id of class Domains\\\\Supports\\\\DataTransferToObject\\\\ReportData constructor expects string\\|null, int given\\.$#"
+			count: 1
+			path: app/Domains/Supports/DataTransferToObject/ReportData.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Users/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Http\\\\Resources\\\\Json\\\\AnonymousResourceCollection\\:\\:appends\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Users/Actions/Posts/IndexPostAction.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between int and string will always evaluate to false\\.$#"
+			count: 1
+			path: app/Domains/Users/Actions/Posts/Reports/StoreReportPostAction.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\:\\:publish\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Users/Actions/Posts/ShowPostAction.php
+
+		-
+			message: "#^Call to an undefined method Laravel\\\\Sanctum\\\\Contracts\\\\HasAbilities\\:\\:delete\\(\\)\\.$#"
+			count: 1
+			path: app/Domains/Users/Actions/Sessions/LogoutUserAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$userable_id of class Domains\\\\Users\\\\DataTransferToObject\\\\LikeData constructor expects string\\|null, int given\\.$#"
+			count: 1
+			path: app/Domains/Users/DataTransferToObject/LikeData.php
+
+		-
+			message: "#^Parameter \\#1 \\$writable_id of class Domains\\\\Users\\\\DataTransferToObject\\\\ReportData constructor expects string\\|null, int given\\.$#"
+			count: 1
+			path: app/Domains/Users/DataTransferToObject/ReportData.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$message$#"
+			count: 1
+			path: app/Exceptions/Handler.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$statusCode$#"
+			count: 1
+			path: app/Exceptions/Handler.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Models\\\\User\\:\\:posts\\(\\)\\.$#"
+			count: 1
+			path: app/Filament/Resources/PostResource/Pages/CreatePost.php
+
+		-
+			message: "#^Result of callable Domains\\\\Admins\\\\Actions\\\\Admins\\\\DestroyAdminAction \\(void\\) is used\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Admins/AdminController.php
+
+		-
+			message: "#^Parameter \\#1 \\$request of callable Domains\\\\Admins\\\\Actions\\\\Bookmarks\\\\DestroyBookmarkAction expects App\\\\Http\\\\Requests\\\\Authors\\\\BookmarkRequest, App\\\\Http\\\\Requests\\\\Admins\\\\BookmarkRequest given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Admins/BookmarkController.php
+
+		-
+			message: "#^Parameter \\#1 \\$request of callable Domains\\\\Admins\\\\Actions\\\\Bookmarks\\\\StoreBookmarkAction expects App\\\\Http\\\\Requests\\\\Authors\\\\BookmarkRequest, App\\\\Http\\\\Requests\\\\Admins\\\\BookmarkRequest given\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Admins/BookmarkController.php
+
+		-
+			message: "#^Callable Domains\\\\Admins\\\\Actions\\\\Comments\\\\DestroyCommentAction invoked with 1 parameter, 2 required\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Admins/CommentController.php
+
+		-
+			message: "#^Result of callable Domains\\\\Admins\\\\Actions\\\\Tags\\\\DestroyTagAction \\(void\\) is used\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Admins/TagController.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$request with type Domains\\\\Users\\\\Actions\\\\Sessions\\\\LoginUserAction is incompatible with native type App\\\\Http\\\\Requests\\\\Users\\\\Sessions\\\\LoginUserRequest\\.$#"
+			count: 1
+			path: app/Http/Controllers/Api/v1/Users/Sessions/SessionController.php
+
+		-
+			message: "#^Array has 2 duplicate keys with value 'ids' \\('ids', 'ids'\\)\\.$#"
+			count: 1
+			path: app/Http/Requests/Admins/BookmarkRequest.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$is_active\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AdminResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AdminResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$is_active\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\AuthorResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/AuthorResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Bookmarks\\\\BookmarkResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Bookmarks/BookmarkResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Bookmarks\\\\BookmarkResource\\:\\:\\$post\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Bookmarks/BookmarkResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Comments\\\\CommentResource\\:\\:\\$comment\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Comments/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Comments\\\\CommentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Comments/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Notifications\\\\NotificationDataResource\\:\\:\\$data\\.$#"
+			count: 2
+			path: app/Http/Resources/Admins/Notifications/NotificationDataResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Notifications\\\\NotificationDataResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Notifications/NotificationDataResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Notifications\\\\NotificationResource\\:\\:\\$notifications\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Notifications/NotificationResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Notifications\\\\NotificationResource\\:\\:\\$unread_notifications_count\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Notifications/NotificationResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\ImageResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/ImageResource.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\ImageResource\\:\\:getUrl\\(\\)\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/ImageResource.php
+
+		-
+			message: "#^Using nullsafe method call on non\\-nullable type \\$this\\(App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\ImageResource\\)\\. Use \\-\\> instead\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/ImageResource.php
+
+		-
+			message: "#^Using nullsafe property access on non\\-nullable type \\$this\\(App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\ImageResource\\)\\. Use \\-\\> instead\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/ImageResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$description_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$description_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$is_publish_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$is_publish_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$title_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostCollectionResource\\:\\:\\$title_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$description_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$description_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$images\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$is_publish_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$is_publish_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$poster\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$title_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\PostResource\\:\\:\\$title_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\TagResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Posts\\\\TagResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Posts/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Profiles\\\\ProfileResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\ReplyComments\\\\ReplyCommentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/ReplyComments/ReplyCommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\ReplyComments\\\\ReplyCommentResource\\:\\:\\$is_seen\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/ReplyComments/ReplyCommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\ReplyComments\\\\ReplyCommentResource\\:\\:\\$reply\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/ReplyComments/ReplyCommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\CommentResource\\:\\:\\$comment\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\CommentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\CommentResource\\:\\:\\$userable\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\PostResource\\:\\:\\$authorable\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\PostResource\\:\\:\\$description\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\PostResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\PostResource\\:\\:\\$title\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportResource\\:\\:\\$reason\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportResource\\:\\:\\$reportable\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportResource\\:\\:\\$reportable_type\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Match expression does not handle remaining value\\: mixed$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportsResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportsResource\\:\\:\\$report_type\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\ReportsResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/ReportsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\UserResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\UserResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\Reports\\\\UserResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/Reports/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\TagResource\\:\\:\\$admin\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\TagResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\TagResource\\:\\:\\$name_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\TagResource\\:\\:\\$name_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\TagResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$is_active\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Admins\\\\UserResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Admins/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Bookmarks\\\\BookmarkResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Bookmarks/BookmarkResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Comments\\\\CommentResource\\:\\:\\$comment\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Comments/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Comments\\\\CommentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Comments/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Comments\\\\CommentResource\\:\\:\\$userable\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Comments/CommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Comments\\\\UserResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Comments/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Comments\\\\UserResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Comments/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Notifications\\\\NotificationDataResource\\:\\:\\$data\\.$#"
+			count: 2
+			path: app/Http/Resources/Authors/Notifications/NotificationDataResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Notifications\\\\NotificationDataResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Notifications/NotificationDataResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Notifications\\\\NotificationResource\\:\\:\\$notifications\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Notifications/NotificationResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Notifications\\\\NotificationResource\\:\\:\\$unread_notifications_count\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Notifications/NotificationResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\ImageResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/ImageResource.php
+
+		-
+			message: "#^Call to an undefined method App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\ImageResource\\:\\:getUrl\\(\\)\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/ImageResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$description_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$description_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$is_publish_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$is_publish_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$title_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostCollectionResource\\:\\:\\$title_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostCollectionResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$description_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$description_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$images\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$is_publish_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$is_publish_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$poster\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$status\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$title_ar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\PostResource\\:\\:\\$title_en\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/PostResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\TagResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Posts\\\\TagResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Posts/TagResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\Profiles\\\\ProfileResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/Profiles/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\ReplyComments\\\\ReplyCommentResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/ReplyComments/ReplyCommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Authors\\\\ReplyComments\\\\ReplyCommentResource\\:\\:\\$reply\\.$#"
+			count: 1
+			path: app/Http/Resources/Authors/ReplyComments/ReplyCommentResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\CommentsResource\\:\\:\\$comment\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/CommentsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\CommentsResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/CommentsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$comment_count\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$description\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$images\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$is_bookmark\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$is_like\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$like_count\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$poster\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$tags\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\PostsResource\\:\\:\\$title\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/PostsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\ReplyCommentsResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/ReplyCommentsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\ReplyCommentsResource\\:\\:\\$reply\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/ReplyCommentsResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\UserResource\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Posts\\\\UserResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Posts/UserResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Sessions\\\\ProfileResource\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Sessions/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Sessions\\\\ProfileResource\\:\\:\\$email\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Sessions/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Sessions\\\\ProfileResource\\:\\:\\$gender_translate\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Sessions/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Sessions\\\\ProfileResource\\:\\:\\$local\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Sessions/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\Users\\\\Sessions\\\\ProfileResource\\:\\:\\$name\\.$#"
+			count: 1
+			path: app/Http/Resources/Users/Sessions/ProfileResource.php
+
+		-
+			message: "#^Access to an undefined property App\\\\Models\\\\Admin\\:\\:\\$avatar\\.$#"
+			count: 1
+			path: app/Models/Admin.php
+
+		-
+			message: "#^Match expression does not handle remaining value\\: string$#"
+			count: 1
+			path: app/Models/Report.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Foundation\\\\Auth\\\\User\\:\\:hasRole\\(\\)\\.$#"
+			count: 1
+			path: app/Providers/AuthServiceProvider.php
